@@ -6,6 +6,7 @@ import name from './modules/name'
 import dianpu from './modules/dianpu'
 import city from './modules/city'
 import classificationArea from './modules/classificationArea'
+import restaurant from './modules/restaurant'
 Vue.use(Vuex)
 export default new Vuex.Store({
   getters,
@@ -14,6 +15,7 @@ export default new Vuex.Store({
     name,
     dianpu,
     city,
-    classificationArea
+    classificationArea,
+    restaurant
   }
 })

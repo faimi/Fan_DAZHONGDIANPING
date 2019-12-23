@@ -15,11 +15,12 @@ const portfinder = require('portfinder')
 const axios = require('axios')
 const express = require('express')
 const app = express()
-const appData = require('../src/mock/lunbotu.json')
+const appData = require('../src/mock/data.json')
 var name = appData.name
 var dianpu = appData.dianpu
 var city = appData.city
 var ClassificationArea=appData.ClassificationArea
+var RestaurantList=appData.RestaurantList
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 
@@ -88,6 +89,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.json({
           errno:0,
           data:ClassificationArea
+        })
+      });
+      app.get('/api/RestaurantList',(req,res)=>{
+        res.json({
+          errno:0,
+          data:RestaurantList
         })
       });
     }

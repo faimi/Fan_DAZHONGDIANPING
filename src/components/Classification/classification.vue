@@ -1,30 +1,39 @@
 <template>
   <div id="app">
     <div class="cf-flex dropdown">
-      <div class="cf-flex1" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" 
+      <div
+        class="cf-flex1"
+        type="button"
+        id="dropdownMenu1"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="true"
       >
         全部商区
         <span class="iconfont icon-jiangxu down"></span>
         <span class="iconfont icon-shengxu up"></span>
       </div>
       <!-- 会报错，所以:key=后面一定要加'all'或者'part'，单单把(index,key)里面的key修改了不行 -->
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >
-        <li class="lef-li" data-stopPropagation="true">
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li class="lef-li" data-stop-propagation="true">
           <a
             href="#"
             class="dropdown-menu-li"
-            v-for="(index,key) in ClassifyArea"
-            :key="'all'+key"
+            v-for="(index, key) in ClassifyArea"
+            :key="'all' + key"
             @click="choose(key)"
-          >{{index.AllArea}}</a>
+          >{{ index.AllArea }}</a>
         </li>
-        <li class="right-li" v-if="ClassifyArea[0]!=null">
+        <li class="right-li" v-if="ClassifyArea[0] != null">
           <a
             href="#"
-            v-for="(index,key) in ClassifyArea[type].classifyArea"
-            :key="'part'+key"
-            :class="key==0?'dropdown-menu-li f63':'dropdown-menu-li'"
-          >{{index}}<div class="zx" v-if="key!=0">APP专享</div></a>
+            v-for="(index, key) in ClassifyArea[type].classifyArea"
+            :key="'part' + key"
+            :class="key == 0 ? 'dropdown-menu-li f63' : 'dropdown-menu-li'"
+          >
+            {{ index }}
+            <div class="zx" v-if="key != 0">APP专享</div>
+          </a>
         </li>
       </ul>
       <div class="cf-flex1">
@@ -38,7 +47,6 @@
         <span class="iconfont icon-shengxu up"></span>
       </div>
     </div>
-    
   </div>
 </template>
 <script>
@@ -89,7 +97,7 @@ export default {
     return {
       type: 0,
       arr: [],
-      show:false
+      show: false
     };
   },
   methods: {
@@ -98,8 +106,8 @@ export default {
     }
   }
 };
-$("body").on('click','[data-stopPropagation]',function (e) {
- e.stopPropagation();
+$("body").on("click", "[data-stopPropagation]", function(e) {
+  e.stopPropagation();
 });
 </script>
 <style lang="less" scoped>
@@ -111,7 +119,7 @@ $("body").on('click','[data-stopPropagation]',function (e) {
   .cf-flex {
     background-color: #fff;
     display: flex;
-    width: 100%;
+    width: 102%;
     text-align: center;
     .cf-flex1 {
       flex: 1;
@@ -200,13 +208,12 @@ $("body").on('click','[data-stopPropagation]',function (e) {
         }
         //注意渲染顺序，如果f63在dropdown-menu-li的上方，样式会被覆盖
         .f63 {
-        color: #f63;
-      }
+          color: #f63;
+        }
       }
       .right-li::-webkit-scrollbar {
         display: none; /* 隐藏滚动条 */
       }
-      
     }
   }
 }

@@ -62,6 +62,7 @@ export default {
   flex: 21;
   font-size: 13px;
   padding-left: 15px;
+  background-color: #fff;
 }
 .gr {
   margin: auto 19px;

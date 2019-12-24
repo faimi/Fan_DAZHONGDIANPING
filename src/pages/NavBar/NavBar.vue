@@ -1,6 +1,7 @@
 <template>
   <!-- <div id="app" v-show="cityShow" class="city"> -->
   <div class="city">
+    <v-ButtonToolbar></v-ButtonToolbar>
     <div class="sousuo">
       <input class="iconfont inp" type="text" placeholder="输入城市名或拼音查询" />
     </div>
@@ -11,7 +12,7 @@
     </div>
     <div class="cs">&nbsp;&nbsp;&nbsp;更多城市</div>
     <div class="flex">
-    <div class="flex3 com" v-for="(zi,k6) in zimu" :key="k6">{{zi}}</div>
+      <div class="flex3 com" v-for="(zi,k6) in zimu" :key="k6">{{zi}}</div>
     </div>
     <div v-for="(item,k3) in city" :key="k3+'-city'">
       <div class="cs">&nbsp;&nbsp;&nbsp;{{item.title}}</div>
@@ -24,6 +25,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import buttonToolbar from "../../components/ButtonToolbar/buttonToolbar.vue";
 export default {
   created() {
     this.$store.dispatch("getCity");
@@ -72,15 +74,11 @@ export default {
     };
   },
   computed: {
-    // ...mapGetters(["cityShow", "city"])
     ...mapGetters(["city"])
-
   },
-  // methods: {
-  //   hidenCity() {
-  //     this.$store.dispatch("hidenCity");
-  //   }
-  // }
+  components: {
+    "v-ButtonToolbar": buttonToolbar
+  }
 };
 </script>
 <style scoped>
@@ -102,6 +100,7 @@ export default {
   border-radius: 25px;
   outline: none;
   color: black;
+  font-size: 15px;
   text-align: center;
 }
 .sousuo {

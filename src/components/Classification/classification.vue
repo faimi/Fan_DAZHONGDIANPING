@@ -119,7 +119,7 @@ $("body").on("click", "[data-stopPropagation]", function(e) {
   .cf-flex {
     background-color: #fff;
     display: flex;
-    width: 102%;
+    width: 100%;
     text-align: center;
     .cf-flex1 {
       flex: 1;

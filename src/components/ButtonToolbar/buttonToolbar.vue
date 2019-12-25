@@ -1,22 +1,15 @@
 <template>
   <div id="app">
     <header class="aui-bar aui-bar-nav aui-bar-light">
-      <a class="aui-pull-left aui-btn" @click="$router.push('/home')">
+      <a class="aui-pull-left aui-btn" @click.stop="$router.push('/home')">
         <span class="aui-iconfont aui-icon-left"></span>
       </a>
       <div class="aui-title">
-        <div class="aui-bar aui-bar-btn aui-bar-btn-round width150">
+        <div class="aui-bar aui-bar-btn aui-bar-btn-round width150" v-if="$route.path=='/deliciousFood'">
           <div class="aui-bar-btn-item aui-active sh">商户</div>
           <div class="aui-bar-btn-item shtg">闪惠团购</div>
         </div>
-      </div>
-    </header>
-    <header class="aui-bar aui-bar-nav aui-bar-light">
-      <a class="aui-pull-left aui-btn" @click="$router.push('/home')">
-        <span class="aui-iconfont aui-icon-left"></span>
-      </a>
-      <div class="aui-title">
-        <div class="aui-bar aui-bar-btn aui-bar-btn-round width200">
+        <div class="aui-bar aui-bar-btn aui-bar-btn-round width200" v-if="$route.path=='/city'">
           <div class="aui-bar-btn-item aui-active gn">国内</div>
           <div class="aui-bar-btn-item gjgat">国际/港澳台</div>
         </div>

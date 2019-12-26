@@ -1,7 +1,14 @@
 <template>
   <!-- <div id="app" v-show="cityShow" class="city"> -->
   <div class="city">
-    <v-ButtonToolbar></v-ButtonToolbar>
+    <v-ButtonToolbar v-slot:tabChoose>
+      <template>
+        <div class="aui-bar aui-bar-btn aui-bar-btn-round width200">
+          <div class="aui-bar-btn-item aui-active gn">国内</div>
+          <div class="aui-bar-btn-item gjgat">国际/港澳台</div>
+        </div>
+      </template>
+    </v-ButtonToolbar>
     <div class="sousuo">
       <input class="iconfont inp" type="text" placeholder="输入城市名或拼音查询" />
     </div>
@@ -143,5 +150,20 @@ export default {
   height: 50px;
   text-align: center;
   line-height: 50px;
+}
+.width200 {
+  width: 200px;
+}
+.gn {
+  width: 100px;
+  font-size: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.gjgat {
+  width: 100px;
+  font-size: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 </style>

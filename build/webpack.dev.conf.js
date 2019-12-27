@@ -22,6 +22,7 @@ var city = appData.city
 var ClassificationArea=appData.ClassificationArea
 var RestaurantList=appData.RestaurantList
 var KTV=appData.KTV
+var GroupBuying=appData.GroupBuying
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 
@@ -102,6 +103,12 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         res.json({
           errno:0,
           data:KTV
+        })
+      });
+      app.get('/api/GroupBuying',(req,res)=>{
+        res.json({
+          errno:0,
+          data:GroupBuying
         })
       });
     }

@@ -419,6 +419,60 @@
         "GroupRestaurantTypeSold":45
       }
      ]
-   }
+   },
+   {
+    "GroupName":"龙之梦大酒店自助餐",
+    "GroupType":[
+      {
+        "GroupRestaurantImg":"http://p1.meituan.net/deal/f91df0d5e162445c9097f3eaef18f9143300982.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+        "GroupRestaurantType":"单人自助晚餐，提供免费WiFi",
+        "GroupRestaurantNewPrice":128,
+        "GroupRestaurantOldPrice":198,
+        "GroupRestaurantTypeSold":644
+      },
+      {
+       "GroupRestaurantImg":"http://p0.meituan.net/deal/f08d86ceab7700fb077345f6d445b42741815.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+       "GroupRestaurantType":"私人自助周一~四，提供免费WiFi",
+       "GroupRestaurantNewPrice":428,
+       "GroupRestaurantOldPrice":792,
+       "GroupRestaurantTypeSold":150
+     },
+     {
+       "GroupRestaurantImg":"http://p0.meituan.net/deal/0ae715361cc7f46a589eec0de88413ad1405357.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+       "GroupRestaurantType":"周日家庭套餐，提供免费WiFi",
+       "GroupRestaurantNewPrice":258,
+       "GroupRestaurantOldPrice":496,
+       "GroupRestaurantTypeSold":100
+     },
+     {
+       "GroupRestaurantImg":"http://p0.meituan.net/deal/682ef3967c0a4ce9afb6e508d14b0793383554.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+       "GroupRestaurantType":"单人自助餐早餐，提供免费WiFi",
+       "GroupRestaurantNewPrice":38,
+       "GroupRestaurantOldPrice":68,
+       "GroupRestaurantTypeSold":172
+     },
+     {
+         "GroupRestaurantImg":"http://p0.meituan.net/deal/c02cb9e3711f7077a67a00c8fe4fd2f11744972.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+         "GroupRestaurantType":"私人自助周五~天，提供免费WiFi",
+         "GroupRestaurantNewPrice":468,
+         "GroupRestaurantOldPrice":792,
+         "GroupRestaurantTypeSold":264
+     },
+     {
+       "GroupRestaurantImg":"http://p0.meituan.net/deal/c02cb9e3711f7077a67a00c8fe4fd2f11744972.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+       "GroupRestaurantType":"周一特惠双人餐，提供免费WiFi",
+       "GroupRestaurantNewPrice":208,
+       "GroupRestaurantOldPrice":396,
+       "GroupRestaurantTypeSold":287
+     },
+     {
+       "GroupRestaurantImg":"http://p0.meituan.net/deal/c02cb9e3711f7077a67a00c8fe4fd2f11744972.jpg%40160w_100h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20",
+       "GroupRestaurantType":"单人自助餐，提供免费WiFi，您不但可以品尝到特色的美食，更可以享受到龙之梦独特的法国蓝莓鹅肝、生猛海鲜要您来品尝",
+       "GroupRestaurantNewPrice":138,
+       "GroupRestaurantOldPrice":198,
+       "GroupRestaurantTypeSold":1040
+     }
+    ]
+  }
  ]
 }

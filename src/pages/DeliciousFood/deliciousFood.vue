@@ -8,9 +8,9 @@
         </div>
       </template>
     </v-buttonToolbar>
-    <v-classification v-if="flag==false"></v-classification>
-    <v-foodList></v-foodList>
-    <v-groupBuying></v-groupBuying>
+    <v-classification></v-classification>
+    <v-foodList v-if="flag==false"></v-foodList>
+    <v-groupBuying v-if="flag==true"></v-groupBuying>
     <!-- <v-foodList style="width:1000px;"></v-foodList> -->
   </div>
 </template>

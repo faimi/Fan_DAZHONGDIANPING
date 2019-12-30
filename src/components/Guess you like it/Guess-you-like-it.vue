@@ -39,7 +39,7 @@
       <img src="./image/competitive_icon.png" style="margin: -2px 0 0 4px;" />
     </div>
     <ul>
-      <li>
+      <li @click="$router.push('/guessLikeDetails')">
         <div class="bg" v-for="(index,key) in dianpu" :key="key">
           <div class="flex1">
             <img :src="index.img" class="imgs" />

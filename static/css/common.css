@@ -127,3 +127,53 @@
 .marks-hui {
   background-position: -106px -106px;
 }
+
+.comm {
+  background: url(//www.dpfile.com/mod/app-m-tuangou/1.3.93/css/img/comm.png) no-repeat;
+  background-size: 25px auto;
+  height: 26px;
+  width: 26px;
+  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comm-dh {
+  background-position: 0 0;
+}
+.comm-sousuo {
+  background-position: 0px -31px;
+}
+.comm-grzx{
+  background-position: 0px -59px;
+}
+.comm-loudou {
+  background-position: 0px -83px;
+}
+.comm-rq-orange {
+  background-position: 0px -104px;
+}
+.comm-tui-orange {
+  background-position: 0px -128px;
+}
+.comm-taiyang {
+  background-position: 0px -152px;
+}
+.comm-rq-hui-orange{
+  background-position: 0px -178px;
+}
+.comm-tui-hui {
+  background-position: 0px -214px;
+}
+.comm-taiyang-hui {
+  background-position: 0px -249px;
+}
+.comm-gou {
+  background-position: 0px -272px;
+}
+.comm-shicha {
+  background-position: 0px -292px;
+}
+.comm-gou-orange{
+  background-position: -6px -314px;
+}

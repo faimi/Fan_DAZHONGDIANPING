@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="/static/css/common.css">
   <link rel="stylesheet" href="/static/css/aui.css">
   <!-- <link rel="stylesheet" href="favicon.ico"> -->
+  <style>
+    body {
+      background-color: #fff;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,30 +25,32 @@
 <script src="/static/script/api.js"></script>
 <script src="/static/script/aui-tab.js"></script>
 <script type="text/javascript">
-  apiready = function(){
-      api.parseTapmode();
+  apiready = function () {
+    api.parseTapmode();
   }
   var bar = document.querySelectorAll(".aui-bar-btn");
-  if(bar){
-      for(var i=0; i<bar.length;i++){
-          var d = bar[i];
-          var tab = new auiTab({
-              element:bar[i],
-              repeatClick:true
-          },function(ret){
-              if(ret.dom.parentNode.getAttribute("type") && ret.dom.parentNode.getAttribute("type")=="count"){
-                  var count = parseInt(document.getElementById("count").value);
-                  if(ret.index==2)return;
-                  if(ret.index==1){
-                      document.getElementById("count").value = count-1;
-                  }
-                  if(ret.index==3){
-                      document.getElementById("count").value = count+1;
-                  }
-              }
-          });
+  if (bar) {
+    for (var i = 0; i < bar.length; i++) {
+      var d = bar[i];
+      var tab = new auiTab({
+        element: bar[i],
+        repeatClick: true
+      }, function (ret) {
+        if (ret.dom.parentNode.getAttribute("type") && ret.dom.parentNode.getAttribute("type") == "count") {
+          var count = parseInt(document.getElementById("count").value);
+          if (ret.index == 2) return;
+          if (ret.index == 1) {
+            document.getElementById("count").value = count - 1;
+          }
+          if (ret.index == 3) {
+            document.getElementById("count").value = count + 1;
+          }
+        }
+      });
 
-      }
+    }
   }
+
 </script>
+
 </html>

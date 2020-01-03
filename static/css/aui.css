@@ -53,7 +53,7 @@ html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,str
 	}
 }
 ul, li {
-	list-style: none;
+	/* list-style: none; */
 }
 p {
 	font-size: 0.7rem;

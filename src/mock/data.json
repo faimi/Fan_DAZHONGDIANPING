@@ -38,25 +38,133 @@
       "img": "//p0.meituan.net/deal/fe2fe63b8a2c2e04f7c330bed9f3982d39999.jpg.webp@180w_180h_1e_1c_1l_80q|watermark=0",
       "name": "一口香烧饼",
       "type": "[嘉兴万达]低至8.8折葱油饼豪华套餐",
-      "price": "9.2"
+      "price": "9.2",
+      "oldPrice":"10.5",
+      "DPStar": "DiscountImg-three-five",
+      "DPdistance":100,
+      "DPAddress":"庆丰路万达秋江花苑16幢10号",
+      "TGAll":"烧饼",
+      "TGName":["葱油烧饼","里脊肉","臭豆腐","热狗"],
+      "TGNum":[1,1,1,1],
+      "TGPrices":[5,2,2,1.5],
+      "TGTopPrice":10.5,
+      "TGPrice":9.2,
+      "TGOther":[
+        {
+          "TGOtherNewPrice":9.5,
+          "TGOtherOldPrice":10,
+          "TGOtherName":"雪花无骨鸡柳大份1份"
+        },
+        {
+          "TGOtherNewPrice":14.5,
+          "TGOtherOldPrice":16.5,
+          "TGOtherName":"鲜肉饼至尊套餐"
+        },
+        {
+          "TGOtherNewPrice":6.2,
+          "TGOtherOldPrice":7,
+          "TGOtherName":"葱油烧饼+臭豆腐"
+        }
+      ]
     },
     {
       "img": "//p1.meituan.net/deal/__37526816__2224109.jpg.webp@180w_180h_1e_1c_1l_80q|watermark=0",
       "name": "当当面馆",
       "type": "[友谊街]低至8.2折酸汤肥牛面1份",
-      "price": "14.8"
+      "price": "14.8",
+      "oldPrice":"18",
+      "DPStar": "DiscountImg-four",
+      "DPdistance":100,
+      "DPAddress":"常秀街427号",
+      "TGAll":"主食",
+      "TGName":["酸汤肥牛面"],
+      "TGNum":[1],
+      "TGPrices":[18],
+      "TGTopPrice":18,
+      "TGPrice":14.8,
+      "TGOther":[
+        {
+          "TGOtherNewPrice":12.8,
+          "TGOtherOldPrice":16,
+          "TGOtherName":"主食2选1"
+        },
+        {
+          "TGOtherNewPrice":20.8,
+          "TGOtherOldPrice":25,
+          "TGOtherName":"鱼香肉丝面单人餐"
+        },
+        {
+          "TGOtherNewPrice":15.8,
+          "TGOtherOldPrice":20,
+          "TGOtherName":"全部2选1"
+        }
+      ]
     },
     {
       "img": "//p1.meituan.net/deal/3914cd76e0dedde7a666b08a6cf60b9265035.jpg.webp@180w_180h_1e_1c_1l_80q|watermark=0",
       "name": "悸动烧仙草",
       "type": "[嘉兴学院]低至8.8折代金券1张",
-      "price": "8.8"
+      "price": "8.8",
+      "oldPrice":"10",
+      "DPStar": "DiscountImg-four",
+      "DPdistance":100,
+      "DPAddress":"越秀南路嘉兴学院东门口",
+      "TGAll":"",
+      "TGName":["代金券"],
+      "TGNum":[1],
+      "TGPrices":[10],
+      "TGTopPrice":10,
+      "TGPrice":8.8,
+      "TGOther":[
+        {
+          "TGOtherNewPrice":8.8,
+          "TGOtherOldPrice":12,
+          "TGOtherName":"饮品3选1"
+        },
+        {
+          "TGOtherNewPrice":12.8,
+          "TGOtherOldPrice":15,
+          "TGOtherName":"饮品3选1"
+        },
+        {
+          "TGOtherNewPrice":22.8,
+          "TGOtherOldPrice":30,
+          "TGOtherName":"代金券1张"
+        }
+      ]
     },
     {
       "img": "//p0.meituan.net/deal/873835239f2957f72c7d13ef4d532cce308418.jpg.webp@180w_180h_1e_1c_1l_80q|watermark=0",
       "name": "鲜目录外带寿司",
       "type": "[巴黎都市]低至9.2折招牌海苔寿司1份",
-      "price": "11.9"
+      "price": "11.9",
+      "oldPrice":"13",
+      "DPStar": "DiscountImg-three-five",
+      "DPdistance":100,
+      "DPAddress":"南溪西路2239号",
+      "TGAll":"寿司",
+      "TGName":["招牌海苔寿司"],
+      "TGNum":[1],
+      "TGPrices":[13],
+      "TGTopPrice":13,
+      "TGPrice":11.9,
+      "TGOther":[
+        {
+          "TGOtherNewPrice":18,
+          "TGOtherOldPrice":20,
+          "TGOtherName":"20元代金券1张"
+        },
+        {
+          "TGOtherNewPrice":13.9,
+          "TGOtherOldPrice":16,
+          "TGOtherName":"海鲜炒年糕1份"
+        },
+        {
+          "TGOtherNewPrice":17.9,
+          "TGOtherOldPrice":20,
+          "TGOtherName":"招牌牛肉饭1份"
+        }
+      ]
     }
   ],
   "city": [

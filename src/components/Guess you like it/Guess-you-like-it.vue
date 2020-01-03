@@ -39,10 +39,10 @@
       <img src="./image/competitive_icon.png" style="margin: -2px 0 0 4px;" />
     </div>
     <ul>
-      <li @click="$router.push('/guessLikeDetails')">
-        <div class="bg" v-for="(index,key) in dianpu" :key="key">
+      <li>
+        <div class="bg" v-for="(index,key) in dianpu.dianpu" :key="key" @click="$router.push(`/guessLikeDetails/${key}`)" >
           <div class="flex1">
-            <img :src="index.img" class="imgs" />
+            <img :src="index.img" class="imgs"/>
           </div>
           <div class="flex4">
             <div class="dian">{{index.name}}</div>
@@ -59,13 +59,14 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
+import Vue from "vue";
+import { mapState } from "vuex";
 export default {
   created() {
     this.$store.dispatch("getDianpu");
   },
   computed: {
-    ...mapGetters(["dianpu"])
+    ...mapState(["dianpu"])
   },
   data() {
     return {

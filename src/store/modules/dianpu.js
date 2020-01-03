@@ -4,11 +4,6 @@ import types from '../mutation-types.js'
 var state = {
   dianpu: []
 }
-const getters = {
-  dianpu(state) {
-    return state.dianpu
-  }
-}
 const actions = {
   getDianpu({
     commit,
@@ -28,7 +23,6 @@ const mutations = {
 }
 export default {
   state,
-  getters,
   actions,
   mutations
 }

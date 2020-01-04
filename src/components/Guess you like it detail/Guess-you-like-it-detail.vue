@@ -1,23 +1,23 @@
 <template>
   <div id="app">
     <div style="position: relative;">
-      <!-- <div class="swiper-container">
+      <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img class="resImg" :src="img" />
+            <img class="resImg" :src="dianpu.img" />
           </div>
         </div>
         <div class="swiper-pagination"></div>
-      </div> -->
+      </div>
       <div class="resText">
-        <h3>一口香烧饼</h3>
-        <p>仅售9.2元！最高价值10.5元的葱油饼豪华套餐，建议单人使用，提供免费停车位。</p>
+        <h3>{{dianpu.name}}</h3>
+        <p>{{dianpu.type}}</p>
       </div>
     </div>
     <div class="resMoney">
       <span class="price1">￥</span>
-      <span class="price2">9.2</span>
-      <span class="price3">￥10.5</span>
+      <span class="price2">{{dianpu.TGPrice}}</span>
+      <span class="price3">￥{{dianpu.TGTopPrice}}</span>
       <button type="button" class="btn btn-warning ljgm">立即购买</button>
     </div>
     <div class="tui">
@@ -33,15 +33,15 @@
       <div class="sysh">适用商户（1）</div>
       <div class="resFlex">
         <div class="resNameBorder">
-          <div class="resName">一口香烧饼</div>
-          <div class="discount DiscountImg DiscountImg-three-five"></div>
-          <div class="resKm">>100km</div>
+          <div class="resName">{{dianpu.name}}</div>
+          <div :class="dianpu.DPStar" class="discount DiscountImg"></div>
+          <div class="resKm">>{{dianpu.DPdistance}}km</div>
         </div>
         <div class="dh"></div>
       </div>
       <div class="resAddress">
         <i class="icon-comm icon-comm-dingwei"></i>
-        庆丰路万达秋江花苑16幢10号
+        {{dianpu.DPAddress}}
       </div>
     </div>
     <div class="resBorder"></div>
@@ -50,19 +50,19 @@
         团购详情
         <i class="icon-comm icon-comm-shu"></i>
       </div>
-      <div class="foodName">烧饼</div>
-      <div class="foodFlex">
-        <div class="foodFlex1">葱油烧饼</div>
-        <div class="foodFlex2">1份</div>
-        <div class="foodFlex3">5元</div>
+      <div class="foodName">{{dianpu.TGAll}}</div>
+      <div class="foodFlex" v-for="(index,key) in dianpu.TGName" :key="key">
+        <div class="foodFlex1">{{dianpu.TGName[key]}}</div>
+        <div class="foodFlex2">{{dianpu.TGNum[key]}}份</div>
+        <div class="foodFlex3">{{dianpu.TGPrices[key]}}元</div>
       </div>
       <div class="zgjz">
         <span style="text-decoration: line-through;">最高价值</span>&nbsp;&nbsp;&nbsp;
-        <span style="text-decoration: line-through;">10.5元</span>
+        <span style="text-decoration: line-through;">{{dianpu.TGTopPrice}}元</span>
       </div>
       <div class="tgj">
         <span style="margin-right: 7px;">团购价</span>&nbsp;&nbsp;&nbsp;
-        <span>9.2元</span>
+        <span>{{dianpu.price}}元</span>
       </div>
       <div style="margin-bottom: 10px;">
         <span class="gd">更多图文详情</span>&nbsp;
@@ -75,72 +75,40 @@
         购买须知
         <i class="icon-comm icon-comm-laba"></i>
       </div>
-      <div class="gmxzTitle">有效期</div>
-      <ul class="gmxzCon">
-        <li>2016-05-16至2020-02-05</li>
-      </ul>
-      <div class="gmxzTitle">除外日期</div>
-      <ul class="gmxzCon">
-        <li>2018年2月14日至2018年2月22日，2017年11月17日-12月16日</li>
-      </ul>
-      <div class="gmxzTitle">使用时间</div>
-      <ul class="gmxzCon">
-        <li>团购券使用时间：10:00-20:00</li>
-      </ul>
-      <div class="gmxzTitle">预约提醒</div>
-      <ul class="gmxzCon">
-        <li>无需预约，消费高峰期可能需要等位</li>
-      </ul>
-      <div class="gmxzTitle">规则提醒</div>
-      <ul class="gmxzCon">
-        <li>每张团购券建议1人使用</li>
-      </ul>
-      <div class="gmxzTitle">其他费用</div>
-      <ul class="gmxzCon">
-        <li>不提供餐巾纸</li>
-      </ul>
-      <div class="gmxzTitle">包间</div>
-      <ul class="gmxzCon">
-        <li>店内无包间</li>
-      </ul>
-      <div class="gmxzTitle">堂食外带</div>
-      <ul class="gmxzCon">
-        <li>仅限餐前外带，提供免费打包服务</li>
-      </ul>
-      <div class="gmxzTitle">温馨提示</div>
-      <ul class="gmxzCon">
-        <li>团购用户不可同时享受商家其他优惠</li>
-      </ul>
-      <div class="gmxzTitle">商家服务</div>
-      <ul class="gmxzCon">
-        <li>免费提供100个停车位</li>
-      </ul>
-      <div class="gmxzTitle">发票信息</div>
-      <ul class="gmxzCon">
-        <li>发票问题请询问商家</li>
+      <ul>
+        <li class="gmxzTitle">有效期</li>
+        <li class="gmxzCon">2016-05-16至2020-02-05</li>
+        <li class="gmxzTitle">除外日期</li>
+        <li class="gmxzCon">2018年2月14日至2018年2月22日，2017年11月17日-12月16日</li>
+        <li class="gmxzTitle">使用时间</li>
+        <li class="gmxzCon">团购券使用时间：10:00-20:00</li>
+        <li class="gmxzTitle">预约提醒</li>
+        <li class="gmxzCon">无需预约，消费高峰期可能需要等位</li>
+        <li class="gmxzTitle">规则提醒</li>
+        <li class="gmxzCon">每张团购券建议1人使用</li>
+        <li class="gmxzTitle">其他费用</li>
+        <li class="gmxzCon">不提供餐巾纸</li>
+        <li class="gmxzTitle">包间</li>
+        <li class="gmxzCon">店内无包间</li>
+        <li class="gmxzTitle">堂食外带</li>
+        <li class="gmxzCon">仅限餐前外带，提供免费打包服务</li>
+        <li class="gmxzTitle">温馨提示</li>
+        <li class="gmxzCon">团购用户不可同时享受商家其他优惠</li>
+        <li class="gmxzTitle">商家服务</li>
+        <li class="gmxzCon">免费提供100个停车位</li>
+        <li class="gmxzTitle">发票信息</li>
+        <li class="gmxzCon">发票问题请询问商家</li>
       </ul>
     </div>
     <div class="resBorder1">
       <button type="button" class="btn btn-warning ljgm">立即购买</button>
     </div>
-    <div class="tg">一口香烧饼的其他团购</div>
-    <div style="margin:15px 0;">
+    <div class="tg">{{dianpu.name}}的其他团购</div>
+    <div style="margin:15px 0;" v-for="(item,k) in dianpu.TGOther" :key="k">
       <span class="price1">￥</span>
-      <span class="price2">9.5</span>
-      <span class="price3">￥10</span>
-      <span>雪花无骨鸡柳大份1份</span>
-    </div>
-    <div style="margin:15px 0;">
-      <span class="price1">￥</span>
-      <span class="price2">14.5</span>
-      <span class="price3">￥16.5</span>
-      <span>鲜肉饼至尊套餐</span>
-    </div>
-    <div style="margin:15px 0;">
-      <span class="price1">￥</span>
-      <span class="price2">6.2</span>
-      <span class="price3">￥7</span>
-      <span>葱油烧饼+臭豆腐</span>
+      <span class="price2">{{item.TGOtherNewPrice}}</span>
+      <span class="price3">￥{{item.TGOtherOldPrice}}</span>
+      <span>{{item.TGOtherName}}</span>
     </div>
     <div class="resBorder"></div>
     <div class="tg">看了此团购的人也看了</div>
@@ -185,16 +153,10 @@ import "swiper/css/swiper.css";
 import Vue from "vue";
 import { mapState } from "vuex";
 export default {
-  // created() {
-  //   this.$store.dispatch("getDianpu");
-  // },
-  // computed: {
-  //   ...mapState(["dianpu"])
-  // },
   mounted: function() {
     this.$nextTick(() => {
-      // this.dianpu=this.$store.state[this.$router]
-      console.log(this.$store.state);
+      this.dianpuIndex = this.$router.currentRoute.params.index;
+      this.dianpu = this.$store.state.dianpu.dianpu[this.dianpuIndex];
     });
     var swiper = new Swiper(".swiper-container", {
       pagination: {
@@ -268,7 +230,7 @@ body {
       from(rgba(0, 0, 0, 0)),
       to(rgba(0, 0, 0, 0.6))
     );
-    bottom: 0px;
+    bottom: 10px;
     z-index: 1000;
     width: 100%;
     h3 {

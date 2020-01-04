@@ -43,9 +43,9 @@ export default {
 </script>
 
 <style lang="less">
-body {
-  background-color: #f0f0f0;
-}
+// body {
+//   background-color: #f0f0f0;
+// }
 .row {
   margin-right: 153px;
 }

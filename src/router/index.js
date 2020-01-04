@@ -23,7 +23,7 @@ export default new Router({
             component:deliciousFood
         },
         {
-            path:'/guessLikeDetails',
+            path:'/guessLikeDetails/:index',
             component:guessLikeDetails
         },
         //如果没有这个redirect，页面会先出来一个只有a标签的空白页面，点击a标签会出现新的页面，里面的内容是home页面

@@ -2,6 +2,7 @@
   <div>
     <v-Search></v-Search>
     <v-Swipe></v-Swipe>
+    <div class="resBorder"></div>
     <v-GuessLike></v-GuessLike> 
   </div>
 </template>
@@ -18,4 +19,9 @@ export default {
 };
 </script>
 <style lang="less">
+  .resBorder {
+    background-color: #f0f0f0;
+    height: 20px;
+    width: 100%;
+  }
 </style>

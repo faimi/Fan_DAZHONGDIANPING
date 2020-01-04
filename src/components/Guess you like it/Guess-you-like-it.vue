@@ -17,8 +17,9 @@
         <img src="./image/arrow.png" />
       </div>
     </div>
+    <div class="resBorder"></div>
     <div class="fl">
-    <!-- <div class="fl" style="min-width:1000px"> -->
+      <!-- <div class="fl" style="min-width:1000px"> -->
       <!-- 无论有没有for循环{{mode.title}}都显示不出来，在for循环下{{index.title}}才能显示出来 -->
       <div
         style="flex:1;width:50%;max-width:50%;min-width:50%;border:1px solid #ccc"
@@ -34,15 +35,21 @@
         </div>
       </div>
     </div>
+    <div class="resBorder"></div>
     <div class="wz">
       猜你喜欢
       <img src="./image/competitive_icon.png" style="margin: -2px 0 0 4px;" />
     </div>
     <ul>
       <li>
-        <div class="bg" v-for="(index,key) in dianpu.dianpu" :key="key" @click="$router.push(`/guessLikeDetails/${key}`)" >
+        <div
+          class="bg"
+          v-for="(index,key) in dianpu.dianpu"
+          :key="key"
+          @click="$router.push(`/guessLikeDetails/${key}`)"
+        >
           <div class="flex1">
-            <img :src="index.img" class="imgs"/>
+            <img :src="index.img" class="imgs" />
           </div>
           <div class="flex4">
             <div class="dian">{{index.name}}</div>
@@ -210,8 +217,14 @@ export default {
   font-size: 23px;
   margin-top: 33px;
 }
-ul, ol {
-    margin-top: 0;
-    margin-bottom: 0;
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.resBorder {
+  background-color: #f0f0f0;
+  height: 20px;
+  width: 100%;
 }
 </style>

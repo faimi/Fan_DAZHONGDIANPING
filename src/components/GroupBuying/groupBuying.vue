@@ -39,10 +39,6 @@
               <span class="oldPrice">￥{{item.GroupRestaurantOldPrice}}</span>
               <div class="GroupSold">
                 已售{{item.GroupRestaurantTypeSold}}
-                <span
-                  class="iconfont icon-xiangxia"
-                  style="font-size: 14px;"
-                ></span>
               </div>
             </div>
           </div>

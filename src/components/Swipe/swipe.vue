@@ -1,7 +1,7 @@
 <template>
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
+      <div class="swiper-slide" style="margin-top: 12px;">
         <div class="row">
           <div v-for="(index,key) in name" :key="key">
             <div class="col-md-1"></div>
@@ -55,7 +55,7 @@ export default {
   position: relative;
   overflow: hidden;
   list-style: none;
-  padding: 12px 0px;
+  // padding: 12px 0px;
   z-index: 1;
   background: white;
   height: 246px;

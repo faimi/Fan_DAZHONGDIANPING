@@ -112,7 +112,7 @@
     </div>
     <div class="resBorder"></div>
     <div class="tg">看了此团购的人也看了</div>
-    <div class="resFlexs">
+    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/1`)">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/0e774376a885086e76a788eedcbc5ea8141548.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"
@@ -123,7 +123,7 @@
         <span class="resOldPrices">￥120</span>
       </div>
     </div>
-    <div class="resFlexs">
+    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/2`)">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/__22857129__4366422.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"
@@ -134,7 +134,7 @@
         <span class="resOldPrices">￥48</span>
       </div>
     </div>
-    <div class="resFlexs">
+    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/3`)">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/3120192c8ee3750b02767af0b639693025645.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"
@@ -175,6 +175,23 @@ export default {
       dianpu: [],
       dianpuIndex: 0
     };
+  },
+  // watch: {
+  //   $route(to, from) {
+  //     if (to.path == "/home") {
+  //     } else {
+  //       this.dianpuIndex = this.$router.currentRoute.params.index;
+  //       this.dianpu = this.$store.state.dianpu.dianpu[this.dianpuIndex];
+  //     }
+  //   }
+  // },
+  beforeRouteUpdate(to, from, next) {
+    console.log("****************Test1*******Update***********");
+    console.log(this, "Update"); //当前组件实例
+    console.log("to", to);
+    console.log("from", from);
+    console.log("next", next);
+    next();
   }
 };
 </script>
@@ -230,7 +247,8 @@ body {
       from(rgba(0, 0, 0, 0)),
       to(rgba(0, 0, 0, 0.6))
     );
-    bottom: 10px;
+    bottom: 0px;
+    // bottom: 10px;
     z-index: 1000;
     width: 100%;
     h3 {

@@ -2,7 +2,30 @@
   <div id="app">
     <div v-for="(index,key) in GroupBuying" v-bind:key="'one'+key">
       <div class="GroupName">{{index.GroupName}}</div>
-      <div v-if="show[key]==false">
+      <div v-for="(item,k) in index.GroupType" v-bind:key="'two'+k">
+        <div class="GroupBorder">
+          <div class="GroupContent">
+            <img class="GroupImg" :src="item.GroupRestaurantImg" />
+          </div>
+          <div class="GroupIntroduce">
+            <div class="GroupIntru">{{item.GroupRestaurantType}}</div>
+            <div class="GroupPrice">
+              <span class="nowPrice">￥{{item.GroupRestaurantNewPrice}}</span>
+              <span class="oldPrice">￥{{item.GroupRestaurantOldPrice}}</span>
+              <div class="GroupSold">已售{{item.GroupRestaurantTypeSold}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="GroupHidden" @click="shows(key)">
+        还有{{index.GroupType.length-2}}个团购
+        <span
+          class="iconfont icon-xiangxia"
+          style="font-size: 14px;"
+        ></span>
+      </div>
+      <div class="nulls"></div>
+      <!-- <div v-if="show[key]==false">
         <div v-for="(item,k) in index.GroupType" v-bind:key="'two'+k">
           <div class="GroupBorder" v-if="k<2">
             <div class="GroupContent">
@@ -26,8 +49,8 @@
           ></span>
         </div>
         <div class="nulls"></div>
-      </div>
-      <div v-else>
+      </div>-->
+      <!-- <div v-else>
         <div class="GroupBorder" v-for="(item,k1) in index.GroupType" v-bind:key="'three'+k1">
           <div class="GroupContent">
             <img class="GroupImg" :src="item.GroupRestaurantImg" />
@@ -44,7 +67,7 @@
           </div>
         </div>
         <div class="nulls"></div>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -59,7 +82,9 @@ export default {
   },
   methods: {
     shows(key) {
-      this.show[key] = true;
+      // this.show[key] = true;
+      // this.$forceUpdate();
+      this.GroupBuying[key].GroupType.length = 2;
       this.$forceUpdate();
     }
   },

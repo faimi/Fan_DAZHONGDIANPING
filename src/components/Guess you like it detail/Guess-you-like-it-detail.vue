@@ -147,16 +147,17 @@
     </div>
   </div>
 </template>
+
 <script>
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
 import Vue from "vue";
 import { mapState } from "vuex";
 export default {
-  mounted: function() {
+  mounted() {
     this.$nextTick(() => {
-      this.dianpuIndex = this.$router.currentRoute.params.index;
-      this.dianpu = this.$store.state.dianpu.dianpu[this.dianpuIndex];
+      this.dianpuIndex = this.$route.params.index;
+      this.dianpu = this.$store.state.dianpu[this.dianpuIndex];
     });
     var swiper = new Swiper(".swiper-container", {
       pagination: {
@@ -175,7 +176,7 @@ export default {
       dianpu: [],
       dianpuIndex: 0
     };
-  },
+  }
   // watch: {
   //   $route(to, from) {
   //     if (to.path == "/home") {
@@ -185,14 +186,6 @@ export default {
   //     }
   //   }
   // },
-  beforeRouteUpdate(to, from, next) {
-    console.log("****************Test1*******Update***********");
-    console.log(this, "Update"); //当前组件实例
-    console.log("to", to);
-    console.log("from", from);
-    console.log("next", next);
-    next();
-  }
 };
 </script>
 <style lang="less" scoped>

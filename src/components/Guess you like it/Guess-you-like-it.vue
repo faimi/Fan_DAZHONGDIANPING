@@ -44,7 +44,7 @@
       <li>
         <div
           class="bg"
-          v-for="(index,key) in dianpu.dianpu"
+          v-for="(index,key) in dianpu"
           :key="key"
           @click="$router.push(`/guessLikeDetails/${key}`)"
         >

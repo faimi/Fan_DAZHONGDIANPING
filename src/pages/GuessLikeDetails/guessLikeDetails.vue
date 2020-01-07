@@ -162,9 +162,9 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.dianpuIndex = this.$route.params.index;
-      this.dianpus=this.$store.state.dianpu;
       this.dianpu = this.$store.state.dianpu[this.dianpuIndex];
-      console.log(this.dianpu)
+      // console.log(this.dianpuIndex);
+      // console.log(this.dianpu);
     });
     var swiper = new Swiper(".swiper-container", {
       pagination: {
@@ -181,27 +181,39 @@ export default {
   data() {
     return {
       dianpu: [],
-      dianpuIndex: 0,
-      dianpus:[]
+      dianpuIndex: 0
     };
   },
-  // watch: {
-  //   $route(to, from) {
-  //     if (to.path == "/home") {
-  //     } else {
-  //       this.dianpuIndex = this.$router.currentRoute.params.index;
-  //       this.dianpu = this.$store.state.dianpu.dianpu[this.dianpuIndex];
-  //     }
-  //   }
-  // },
+  watch: {
+    $route(to, from) {
+      if (to.path == "/home") {
+      } else {
+        this.dianpuIndex = this.$route.params.index;
+        this.dianpu = this.$store.state.dianpu[this.dianpuIndex];
+      }
+    }
+  },
   components: {
     // "v-LikeDetail": LikeDetail,
     "v-buttonToolbar": buttonToolbar
   },
-  beforeRouteUpdate: (to, from, next) => {
-    if (to.fullPath != from.fullPath) {
-    }
-  }
+  // beforeRouteEnter(to, from, next) {
+  //   next(vm => {
+  //     vm.dianpuIndex = to.params.index;
+  //     vm.dianpu = vm.$store.state.dianpu[vm.dianpuIndex];
+  //   });
+  // },
+  // //在/guessLikeDetails/1直接跳转到/guessLikeDetails/2时起作用，但是打印出来的this不是vue实例
+  // beforeRouteUpdate: (to, from, next) => {
+  //   console.log(this, "beforeRouteUpdate");
+  //   console.log(this)
+  //   next();
+  // },
+  // beforeRouteLeave(to, from, next) {
+  //   //这个this是vue实例,只在退出/guessLikeDetails/:index页面的时候才起作用，在页面/guessLikeDetails/1直接跳转到/guessLikeDetails/2时不起作用
+  //   console.log(this);
+  //   next();
+  // },
 };
 </script>
 <style lang="less" scoped>

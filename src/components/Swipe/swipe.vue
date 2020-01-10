@@ -1,26 +1,21 @@
 <template>
-  <!-- <div class="swiper-container">
+  <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" style="margin-top: 12px;">
-        <van-row>
+        <div class="row">
           <div v-for="(index,key) in name" :key="key">
-            <van-col span="1"></van-col>
-            <van-col span="2">
+            <div class="col-md-1"></div>
+            <div class="col-md-2 col-md-2-style">
               <img class="img" :src="index.pict" @click="$router.push('/deliciousFood')" />
               <div class="font">{{index.tit}}</div>
-            </van-col>
+            </div>
           </div>
-        <van-row>
+        </div>
       </div>
-  </div>-->
-  <!-- 如果需要分页器 -->
-  <!-- <div class="swiper-pagination"></div>
-  </div>-->
-<van-row>
-  <van-col span="2">span: 8</van-col>
-  <van-col span="3">span: 8</van-col>
-  <van-col span="3">span: 8</van-col>
-</van-row>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+  </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-container">
+  <!-- <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" style="margin-top: 12px;">
         <div class="row">
@@ -12,9 +12,16 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- 如果需要分页器 -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div>
+  </div> -->
+  <div>
+    <van-row>
+      <van-col span="8">span: 8</van-col>
+      <van-col span="8">span: 8</van-col>
+      <van-col span="8">span: 8</van-col>
+    </van-row>
   </div>
 </template>
 

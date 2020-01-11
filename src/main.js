@@ -5,9 +5,12 @@ import App from './App'
 import router from './router'
 import store from './store/index.js'
 import $ from 'jquery'
-import { Row, Col } from 'vant';
+import Vant from 'vant';
+import'vant/lib/index.css';
+Vue.use(Vant)
+// import { Row, Col } from 'vant';
 Vue.config.productionTip = false
-Vue.use(Row).use(Col);
+// Vue.use(Row).use(Col);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,27 +1,17 @@
 <template>
-  <!-- <div class="swiper-container">
+  <div class="swiper-container">
     <div class="swiper-wrapper">
       <div class="swiper-slide" style="margin-top: 12px;">
-        <div class="row">
-          <div v-for="(index,key) in name" :key="key">
-            <div class="col-md-1"></div>
-            <div class="col-md-2 col-md-2-style">
-              <img class="img" :src="index.pict" @click="$router.push('/deliciousFood')" />
-              <div class="font">{{index.tit}}</div>
-            </div>
-          </div>
-        </div>
+        <van-row class="row">
+          <van-col span="6" v-for="(index,key) in name" :key="key">
+            <img class="img" :src="index.pict" @click="$router.push('/deliciousFood')" />
+            <div class="font">{{index.tit}}</div>
+          </van-col>
+        </van-row>
       </div>
-    </div> -->
+    </div>
     <!-- 如果需要分页器 -->
-    <!-- <div class="swiper-pagination"></div>
-  </div> -->
-  <div>
-    <van-row>
-      <van-col span="8">span: 8</van-col>
-      <van-col span="8">span: 8</van-col>
-      <van-col span="8">span: 8</van-col>
-    </van-row>
+    <div class="swiper-pagination"></div>
   </div>
 </template>
 
@@ -50,11 +40,8 @@ export default {
 </script>
 
 <style lang="less">
-// body {
-//   background-color: #f0f0f0;
-// }
 .row {
-  margin-right: 153px;
+  text-align: center;
 }
 .swiper-container {
   margin-left: auto;
@@ -62,21 +49,19 @@ export default {
   position: relative;
   overflow: hidden;
   list-style: none;
-  // padding: 12px 0px;
   z-index: 1;
   background: white;
   height: 246px;
-}
-.col-md-2-style {
-  text-align: center;
-  font-size: 18px;
-  font-family: Microsoft YaHei;
 }
 .img {
   width: 70px;
   height: 70px;
 }
 .font {
-  margin: 10px 0;
+  text-align: center;
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  margin-top: -6px;
+  line-height: 25px;
 }
 </style>

@@ -1,9 +1,12 @@
 <template>
-  <div>
+  <div id="app">
     <v-buttonToolbar>
-      <template v-slot:tabChoose>团购详情</template>
+      <div slot="left" @click="$router.push('/home')">
+        <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"></i>
+        <div class="van-nav-bar__text">返回</div>
+      </div>
+      <div slot="title">团购详情</div>
     </v-buttonToolbar>
-    <!-- <v-LikeDetail></v-LikeDetail> -->
     <div style="position: relative;">
       <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -22,7 +25,7 @@
       <span class="price1">￥</span>
       <span class="price2">{{dianpu.TGPrice}}</span>
       <span class="price3">￥{{dianpu.TGTopPrice}}</span>
-      <button type="button" class="btn btn-warning ljgm">立即购买</button>
+      <van-button type="default" class="btn btn-warning ljgm">立即购买</van-button>
     </div>
     <div class="tui">
       <div class="suishi">
@@ -105,7 +108,7 @@
       </ul>
     </div>
     <div class="resBorder1">
-      <button type="button" class="btn btn-warning ljgm">立即购买</button>
+      <van-button type="default" class="btn btn-warning ljgm">立即购买</van-button>
     </div>
     <div class="tg">{{dianpu.name}}的其他团购</div>
     <div style="margin:15px 0;" v-for="(item,k) in dianpu.TGOther" :key="k">
@@ -157,14 +160,11 @@ import "swiper/css/swiper.css";
 import Vue from "vue";
 import { mapState } from "vuex";
 import buttonToolbar from "../../components/ButtonToolbar/buttonToolbar.vue";
-// import LikeDetail from "../../components/Guess you like it detail/Guess-you-like-it-detail.vue";
 export default {
   mounted() {
     this.$nextTick(() => {
       this.dianpuIndex = this.$route.params.index;
       this.dianpu = this.$store.state.dianpu[this.dianpuIndex];
-      // console.log(this.dianpuIndex);
-      // console.log(this.dianpu);
     });
     var swiper = new Swiper(".swiper-container", {
       pagination: {
@@ -194,7 +194,6 @@ export default {
     }
   },
   components: {
-    // "v-LikeDetail": LikeDetail,
     "v-buttonToolbar": buttonToolbar
   },
   // beforeRouteEnter(to, from, next) {
@@ -221,6 +220,7 @@ body {
   background-color: #fff;
 }
 #app {
+  font-size: 14px;
   .swiper-container {
     width: 100%;
     .swiper-slide {

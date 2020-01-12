@@ -1,28 +1,27 @@
 <template>
   <div>
     <!-- 栅栏系统的row不能丢 -->
-    <div class="bc row">
-      <div class="col-md-1 col-xs-1"></div>
-      <div class="col-md-2 col-xs-2">
+    <van-row class="bc row">
+      <van-col span="8">
         <img src="./image/flash_sale.png" />
-      </div>
-      <div class="xbk col-md-8 col-xs-8">
+      </van-col>
+      <van-col span="12" class="textLeft xbk">
         <div class="zgc">
           星巴克中关村（软件园店）
           <span class="pri">￥35</span>
         </div>
         <div class="ti">每天十点开抢</div>
-      </div>
-      <div class="col-md-1 col-xs-1 img2">
+      </van-col>
+      <van-col span="4" class="img2">
         <img src="./image/arrow.png" />
-      </div>
-    </div>
+      </van-col>
+    </van-row>
     <div class="resBorder"></div>
     <div class="fl">
       <!-- <div class="fl" style="min-width:1000px"> -->
       <!-- 无论有没有for循环{{mode.title}}都显示不出来，在for循环下{{index.title}}才能显示出来 -->
       <div
-        style="flex:1;width:50%;max-width:50%;min-width:50%;border:1px solid #ccc"
+        style="flex:1;width:49%;max-width:50%;min-width:49%;border:1px solid #ccc"
         v-for="(index,key) in mod"
         :key="key"
       >
@@ -38,7 +37,7 @@
     <div class="resBorder"></div>
     <div class="wz">
       猜你喜欢
-      <img src="./image/competitive_icon.png" style="margin: -2px 0 0 4px;" />
+      <img src="./image/competitive_icon.png" style="margin: -2px 0 0 8px;" />
     </div>
     <ul>
       <li>
@@ -106,7 +105,6 @@ export default {
 </script>
 <style scoped>
 .wz {
-  margin-right: 10px;
   color: #acacac;
   font-size: 20px;
   margin: 10px 21px;
@@ -148,9 +146,9 @@ export default {
 .li {
   color: #ff784b;
   border: 1px solid;
-  padding: 4px;
+  padding: 5px;
   border-radius: 3px;
-  margin-right: 10px;
+  font-size: 10px;
 }
 .ma10 {
   margin-top: 16px;
@@ -158,10 +156,12 @@ export default {
 .bc {
   background: white;
   margin: 20px 0;
-  /* min-width: 1000px; */
 }
 .xbk {
-  margin-top: 32px;
+  margin: 36px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .zgc {
   color: #070707;

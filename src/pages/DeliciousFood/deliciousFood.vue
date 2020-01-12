@@ -1,35 +1,40 @@
 <template>
   <div id="app">
     <v-buttonToolbar>
-      <template v-slot:tabChoose>
-        <div class="aui-bar aui-bar-btn aui-bar-btn-round width150">
-          <div class="aui-bar-btn-item aui-active sh" @click="flag=false">商户</div>
-          <div class="aui-bar-btn-item shtg" @click="flag=true">闪惠团购</div>
-        </div>
-      </template>
+      <div slot="left" @click="$router.push('/home')">
+        <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"></i>
+        <div class="van-nav-bar__text">返回</div>
+      </div>
+      <div slot="title">
+        <van-tabs type="card" @click="show()">
+          <van-tab title="商户" class="sh"></van-tab>
+          <van-tab title="闪惠团购" class="shtg"></van-tab>
+        </van-tabs>
+      </div>
     </v-buttonToolbar>
-    <v-classification></v-classification>
-    <v-foodList v-if="flag==false"></v-foodList>
-    <v-groupBuying v-if="flag==true"></v-groupBuying>
-    <!-- <v-foodList style="width:1000px;"></v-foodList> -->
+    <v-groupBuying v-if="shows==true"></v-groupBuying>
+    <v-foodList v-if="shows==false"></v-foodList>
   </div>
 </template>
 <script>
-import classification from "../../components/Classification/classification.vue";
 import foodList from "../../components/FoodList/foodList.vue";
 import buttonToolbar from "../../components/ButtonToolbar/buttonToolbar.vue";
-import groupBuying from "../../components/GroupBuying/groupBuying.vue"
+import groupBuying from "../../components/GroupBuying/groupBuying.vue";
 export default {
   components: {
-    "v-classification": classification,
     "v-foodList": foodList,
     "v-buttonToolbar": buttonToolbar,
-    "v-groupBuying":groupBuying
+    "v-groupBuying": groupBuying
   },
-  data(){
-      return {
-          flag:false
-      }
+  data() {
+    return {
+      shows: false
+    };
+  },
+  methods: {
+    show() {
+      this.shows = !this.shows;
+    }
   }
 };
 </script>

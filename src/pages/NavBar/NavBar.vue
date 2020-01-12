@@ -1,13 +1,17 @@
 <template>
   <!-- <div id="app" v-show="cityShow" class="city"> -->
   <div class="city">
-    <v-ButtonToolbar v-slot:tabChoose>
-      <template>
-        <div class="aui-bar aui-bar-btn aui-bar-btn-round width200">
-          <div class="aui-bar-btn-item aui-active gn">国内</div>
-          <div class="aui-bar-btn-item gjgat">国际/港澳台</div>
-        </div>
-      </template>
+    <v-ButtonToolbar>
+      <div slot="left" @click="$router.push('/home')">
+        <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"></i>
+        <div class="van-nav-bar__text">返回</div>
+      </div>
+      <div slot="title">
+        <van-tabs type="card">
+          <van-tab title="国内" class="gn"></van-tab>
+          <van-tab title="国际/港澳台" class="gj"></van-tab>
+        </van-tabs>
+      </div>
     </v-ButtonToolbar>
     <div class="sousuo">
       <input class="iconfont inp" type="text" placeholder="输入城市名或拼音查询" />
@@ -120,6 +124,7 @@ export default {
   height: 50px;
   line-height: 50px;
   text-align: center;
+  font-size: 14px;
 }
 .cs {
   height: 30px;
@@ -140,8 +145,8 @@ export default {
 }
 .flex3 {
   flex: 1;
-  width: 33.3%;
-  min-width: 33.3%;
+  width: 33%;
+  min-width: 33%;
   max-width: 33.3%;
 }
 .com {
@@ -150,6 +155,7 @@ export default {
   height: 50px;
   text-align: center;
   line-height: 50px;
+  font-size: 14px;
 }
 .width200 {
   width: 200px;
@@ -162,6 +168,18 @@ export default {
 }
 .gjgat {
   width: 100px;
+  font-size: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.gn {
+  width: 75px;
+  font-size: 15px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.gj {
+  width: 75px;
   font-size: 15px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;

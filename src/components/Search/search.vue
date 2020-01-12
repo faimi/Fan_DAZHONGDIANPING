@@ -47,6 +47,7 @@ export default {
 }
 .dz {
   margin: auto 15px;
+  font-size: 14px;
 }
 .icon-xiala {
   font-size: 13px;

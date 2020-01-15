@@ -17,7 +17,7 @@ export default new Router({
       component: home,
     },
     {
-      path: '/deliciousFood',
+      path: '/deliciousFood/:type',
       component: deliciousFood
     },
     {

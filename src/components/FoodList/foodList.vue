@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <div class="fl-flex" v-for="(index,key) in restaurant.Restaurant" v-bind:key="key">
       <div class="flex1">
         <div class="qmth" v-if="index.RestaurantLabel==1"></div>
@@ -41,6 +41,10 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div>
+    {{KTV}}
+    {{restaurant}}
   </div>
 </template>
 <script>
@@ -48,10 +52,11 @@ import Vue from "vue";
 import { mapState } from "vuex";
 export default {
   created() {
+    this.$store.dispatch("getKtv");
     this.$store.dispatch("getRestaurant");
   },
   computed: {
-    ...mapState(["restaurant"])
+    ...mapState(["KTV","restaurant"])
   }
 };
 </script>

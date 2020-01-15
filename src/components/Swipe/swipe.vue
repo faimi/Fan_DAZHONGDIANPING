@@ -4,7 +4,7 @@
       <div class="swiper-slide" style="margin-top: 12px;">
         <van-row class="row">
           <van-col span="6" v-for="(index,key) in name" :key="key">
-            <img class="img" :src="index.pict" @click="$router.push('/deliciousFood')" />
+            <img class="img" :src="index.pict" @click="$router.push(`/deliciousFood/${index.tit}`)" />
             <div class="font">{{index.tit}}</div>
           </van-col>
         </van-row>

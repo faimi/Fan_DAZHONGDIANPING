@@ -1,24 +1,23 @@
 import axios from 'axios'
 import types from '../mutation-types.js'
-
 var state = {
-  dianpu: []
+  KTV: []
 }
 const actions = {
-  getDianpu({
+  getKtv({
     commit,
     state
   }) {
-    axios.get('api/dianpu').then(resp => {
+    axios.get('/api/KTV').then(resp => {
       if (resp.data.errno === 0) {
-        commit(types.GET_DIANPU, resp.data.data)
+        commit(types.GET_KTV, resp.data.data)
       }
     })
   }
 }
 const mutations = {
-  [types.GET_DIANPU](state, data) {
-    state.dianpu = data
+  [types.GET_KTV](state, data) {
+    state.KTV = data
   }
 }
 export default {

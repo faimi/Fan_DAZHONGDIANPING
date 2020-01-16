@@ -1,6 +1,6 @@
 <template>
-  <!-- <div id="app">
-    <div class="fl-flex" v-for="(index,key) in restaurant.Restaurant" v-bind:key="key">
+  <div id="app">
+    <!-- <div class="fl-flex" v-for="(index,key) in restaurant.Restaurant" v-bind:key="key">
       <div class="flex1">
         <div class="qmth" v-if="index.RestaurantLabel==1"></div>
         <img class="BusinessImg" :src="index.RestaurantImg" alt />
@@ -40,11 +40,7 @@
           {{index.RestaurantMark2s}}
         </div>
       </div>
-    </div>
-  </div> -->
-  <div>
-    {{KTV}}
-    {{restaurant}}
+    </div> -->
   </div>
 </template>
 <script>
@@ -52,11 +48,11 @@ import Vue from "vue";
 import { mapState } from "vuex";
 export default {
   created() {
-    this.$store.dispatch("getKtv");
-    this.$store.dispatch("getRestaurant");
+    //传字符，不能传对象
+    this.$store.dispatch("getName");
   },
   computed: {
-    ...mapState(["KTV","restaurant"])
+    ...mapState("name")
   }
 };
 </script>

@@ -20,8 +20,8 @@ var name = appData.name
 var dianpu = appData.dianpu
 var city = appData.city
 var ClassificationArea=appData.ClassificationArea
-var RestaurantList=appData.RestaurantList
-var KTV=appData.KTV
+// var RestaurantList=appData.RestaurantList
+// var KTV=appData.KTV
 var GroupBuying=appData.GroupBuying
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
@@ -93,18 +93,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
           data:ClassificationArea
         })
       });
-      app.get('/api/RestaurantList',(req,res)=>{
-        res.json({
-          errno:0,
-          data:RestaurantList
-        })
-      });
-      app.get('/api/KTV',(req,res)=>{
-        res.json({
-          errno:0,
-          data:KTV
-        })
-      });
+      // app.get('/api/RestaurantList',(req,res)=>{
+      //   res.json({
+      //     errno:0,
+      //     data:RestaurantList
+      //   })
+      // });
+      // app.get('/api/KTV',(req,res)=>{
+      //   res.json({
+      //     errno:0,
+      //     data:KTV
+      //   })
+      // });
       app.get('/api/GroupBuying',(req,res)=>{
         res.json({
           errno:0,

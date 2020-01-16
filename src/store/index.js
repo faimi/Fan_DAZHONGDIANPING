@@ -7,8 +7,8 @@ import mutations from './mutations'
 import name from './modules/name'
 import city from './modules/city'
 import classificationArea from './modules/classificationArea'
-import restaurant from './modules/restaurant'
-import KTV from './modules/ktv'
+// import restaurant from './modules/restaurant'
+// import KTV from './modules/ktv'
 Vue.use(Vuex)
 export default new Vuex.Store({
   state,
@@ -19,7 +19,7 @@ export default new Vuex.Store({
     name,
     city,
     classificationArea,
-    restaurant,
-    KTV
+    // restaurant,
+    // KTV
   }
 })

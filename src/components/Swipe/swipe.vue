@@ -4,7 +4,7 @@
       <div class="swiper-slide" style="margin-top: 12px;">
         <van-row class="row">
           <van-col span="6" v-for="(index,key) in name" :key="key">
-            <img class="img" :src="index.pict" @click="$router.push(`/deliciousFood/${index.tit}`)" />
+            <img class="img" :src="index.pict" @click="$router.push(`/deliciousFood/${index.tit}/${key}`)" />
             <div class="font">{{index.tit}}</div>
           </van-col>
         </van-row>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 import Swiper from "swiper";
 import "swiper/css/swiper.css";
 /* eslint-disable no-new */
@@ -26,7 +26,7 @@ export default {
     this.$store.dispatch("getName");
   },
   computed: {
-    ...mapGetters(["name"])
+    ...mapState(["name"])
   },
   mounted: function() {
     new Swiper(".swiper-container", {

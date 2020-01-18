@@ -1,47 +1,54 @@
 <template>
   <div id="app">
     <div class="fl-flex" v-for="(index,key) in Name.kinds" v-bind:key="key">
-        <div class="flex1">
-          <div v-if="index.NameLabel!=null">
+      <div class="flex1">
+        <div v-if="index.NameLabel!=null">
           <div class="qmth" v-if="index.NameLabel==1"></div>
-          </div>
-          <img class="BusinessImg" :src="index.NameImg" alt />
         </div>
-        <div class="flex8">
-          <div class="restaurantName">
-            {{index.Names}}
-            <span
-              v-for="(index,key) in index.Names1"
-              v-bind:key="'name'+key"
-            >
-              <span :class="index" class="marks"></span>
-            </span>
-          </div>
-          <div class="rows2">
-            <span :class="index.NameStar" class="DiscountImg"></span>
-            <span class="tiao" v-if="index.EvaluationNumber!=null">{{index.EvaluationNumber}}条</span>&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="ren" v-if="index.NameAverage!=null">￥{{index.NameAverage}}/人</span>
-          </div>
-          <div class="rows3">
-            <span class="address" v-if="index.NameArea!=null">{{index.NameArea}}</span>
-            <span class="foodType" v-if="index.NameType!=null">{{index.NameType}}</span>
-          </div>
-          <div class="rows4" v-if="index.NameCondition!=''">
-            <span
-              class="quality"
-              v-for="(index,key) in index.NameCondition"
-              v-bind:key="'all'+key"
-            >{{index}}</span>
-          </div>
-          <div class="rows5" v-if="index.NameMark1!=''">
-            <span class="marks" :class="index.NameMark1"></span>
-            {{index.NameMark1s}}
-          </div>
-          <div class="rows6" v-if="index.NameMark2!=''">
-            <span class="marks" :class="index.NameMark2"></span>
-            {{index.NameMark2s}}
-          </div>
+        <img class="BusinessImg" :src="index.NameImg" alt />
+      </div>
+      <div class="flex8">
+        <div class="restaurantName">
+          {{index.Names}}
+          <span v-for="(index,key) in index.Names1" v-bind:key="'name'+key">
+            <span :class="index" class="marks"></span>
+          </span>
         </div>
+        <div class="rows2">
+          <span :class="index.NameStar" class="DiscountImg"></span>
+          <span class="tiao" v-if="index.EvaluationNumber!=null">{{index.EvaluationNumber}}条</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          <span
+            class="ren"
+            v-if="index.NameAverage!=null"
+          >￥{{index.NameAverage}}/人</span>
+          <span class="ren" v-if="index.NameModel!=null">|&nbsp;&nbsp;{{index.NameModel}}</span>
+        </div>
+        <div class="rows3">
+          <span class="address" v-if="index.NameArea!=null">{{index.NameArea}}</span>
+          <span class="foodType" v-if="index.NameType!=null">{{index.NameType}}</span>
+        </div>
+        <div class="rows4">
+          <span class="price" v-if="index.NamePrice!=null">
+            ￥{{index.NamePrice}}&nbsp;
+            <span class="qi">起</span>
+          </span>
+          <span class="yuding" v-if="index.NameYuding!=null">{{index.NameYuding}}</span>
+          <span
+            v-if="index.NameCondition!=''"
+            class="quality"
+            v-for="(index,key) in index.NameCondition"
+            v-bind:key="'all'+key"
+          >{{index}}</span>
+        </div>
+        <div class="rows5" v-if="index.NameMark1!=''">
+          <span class="marks" :class="index.NameMark1"></span>
+          {{index.NameMark1s}}
+        </div>
+        <div class="rows6" v-if="index.NameMark2!=''">
+          <span class="marks" :class="index.NameMark2"></span>
+          {{index.NameMark2s}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,23 +64,23 @@ export default {
   //   //不能少了[]
   //   ...mapState(["name"])
   // },
-  mounted(){
-    this.$nextTick(()=>{
-      this.NameIndex=this.$route.params.index;
-      this.Name=this.$store.state.name[this.NameIndex]
-    })
+  mounted() {
+    this.$nextTick(() => {
+      this.NameIndex = this.$route.params.index;
+      this.Name = this.$store.state.name[this.NameIndex];
+    });
   },
-  data(){
-    return{
-      NameIndex:0,
-      Name:[]
-    }
+  data() {
+    return {
+      NameIndex: 0,
+      Name: []
+    };
   }
 };
 </script>
 <style lang="less" scoped>
 #app {
-  font-family: Hiragino Sans GB, Arial, Helvetica, "\5B8B\4F53", sans-serif;
+  font: 100%/1 -apple-system, Roboto, PingFang SC, Noto Sans CJK SC, sans-serif;
   .fl-flex {
     display: flex;
     border-bottom: 1px solid #e1e1e1;
@@ -124,6 +131,24 @@ export default {
       }
       .rows4 {
         margin: 8px 0;
+        padding: 6px 0;
+        .price {
+          font-size: 20px;
+          font-weight: 500;
+          color: #f63;
+          .qi {
+            color: #999;
+            font-size: 10px;
+            font-weight: 100;
+          }
+        }
+        .yuding {
+          color: #999;
+          font-size: 10px;
+          position: absolute;
+          right: 22px;
+          margin-top: 5px;
+        }
         .quality {
           font-size: 11px;
           border: 1px solid rgb(225, 225, 225);

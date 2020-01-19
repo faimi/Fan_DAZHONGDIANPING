@@ -28,14 +28,14 @@ export default {
   },
   data() {
     return {
-      shows: false
+      shows: false,
     };
   },
   methods: {
     show() {
       this.shows = !this.shows;
     }
-  }
+  },
 };
 </script>
 <style lang="less" scoped>

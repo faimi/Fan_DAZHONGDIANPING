@@ -16,12 +16,14 @@
         </div>
         <div class="rows2">
           <span :class="index.NameStar" class="DiscountImg"></span>
+          <span class="defen" v-if="index.NameDeFen!=null">{{index.NameDeFen}}分&nbsp;&nbsp;&nbsp;</span>
           <span class="tiao" v-if="index.EvaluationNumber!=null">{{index.EvaluationNumber}}条</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span
             class="ren"
             v-if="index.NameAverage!=null"
           >￥{{index.NameAverage}}/人</span>
           <span class="ren" v-if="index.NameModel!=null">|&nbsp;&nbsp;{{index.NameModel}}</span>
+          <span class="xf" v-if="index.NameXF!=null">{{index.NameXF}}人消费</span>
         </div>
         <div class="rows3">
           <span class="address" v-if="index.NameArea!=null">{{index.NameArea}}</span>
@@ -33,12 +35,13 @@
             <span class="qi">起</span>
           </span>
           <span class="yuding" v-if="index.NameYuding!=null">{{index.NameYuding}}</span>
-          <span
-            v-if="index.NameCondition!=''"
-            class="quality"
-            v-for="(index,key) in index.NameCondition"
-            v-bind:key="'all'+key"
-          >{{index}}</span>
+          <span v-if="index.NameCondition!=''">
+            <span
+              class="quality"
+              v-for="(index,key) in index.NameCondition"
+              v-bind:key="'all'+key"
+            >{{index}}</span>
+          </span>
         </div>
         <div class="rows5" v-if="index.NameMark1!=''">
           <span class="marks" :class="index.NameMark1"></span>
@@ -75,7 +78,16 @@ export default {
       NameIndex: 0,
       Name: []
     };
-  }
+  },
+    watch: {
+    $route(to, from) {
+      if (to.path == "/home") {
+      } else {
+        this.NameIndex = this.$route.params.index;
+        this.Name = this.$store.state.name[this.NameIndex];
+      }
+    }
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -110,6 +122,11 @@ export default {
       }
       .rows2 {
         margin: 8px 0;
+        .defen {
+          color: #ea120e;
+          font-size: 12px;
+          font-weight: 800;
+        }
         .tiao {
           font-size: 12px;
           color: #333;
@@ -117,6 +134,13 @@ export default {
         .ren {
           font-size: 12px;
           color: #333;
+        }
+        .xf{
+          color: #999;
+          font-size: 10px;
+          position: absolute;
+          right: 22px;
+          margin-top: 5px;
         }
       }
       .rows3 {
@@ -132,6 +156,9 @@ export default {
       .rows4 {
         margin: 8px 0;
         padding: 6px 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         .price {
           font-size: 20px;
           font-weight: 500;
@@ -152,7 +179,7 @@ export default {
         .quality {
           font-size: 11px;
           border: 1px solid rgb(225, 225, 225);
-          padding: 5px 4px;
+          padding: 4px 4px;
           color: #999;
           margin-right: 7px;
         }

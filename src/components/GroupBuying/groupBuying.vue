@@ -2,7 +2,7 @@
   <div id="app">
     <div v-for="(index,key) in GroupBuying" v-bind:key="'one'+key">
       <div class="GroupName">{{index.GroupName}}</div>
-      <div v-for="(item,k) in index.GroupType" v-bind:key="'two'+k">
+      <!-- <div v-for="(item,k) in index.GroupType" v-bind:key="'two'+k">
         <div class="GroupBorder">
           <div class="GroupContent">
             <img class="GroupImg" :src="item.GroupRestaurantImg" />
@@ -24,8 +24,8 @@
           style="font-size: 14px;"
         ></span>
       </div>
-      <div class="nulls"></div>
-      <!-- <div v-if="show[key]==false">
+      <div class="nulls"></div> -->
+      <div v-if="show[key]==false">
         <div v-for="(item,k) in index.GroupType" v-bind:key="'two'+k">
           <div class="GroupBorder" v-if="k<2">
             <div class="GroupContent">
@@ -49,8 +49,8 @@
           ></span>
         </div>
         <div class="nulls"></div>
-      </div>-->
-      <!-- <div v-else>
+      </div>
+      <div v-else>
         <div class="GroupBorder" v-for="(item,k1) in index.GroupType" v-bind:key="'three'+k1">
           <div class="GroupContent">
             <img class="GroupImg" :src="item.GroupRestaurantImg" />
@@ -67,25 +67,27 @@
           </div>
         </div>
         <div class="nulls"></div>
-      </div>-->
+      </div>
     </div>
   </div>
 </template>
 <script>
+import Vue from "vue";
 import { mapState } from "vuex";
 export default {
   created() {
     this.$store.dispatch("getGroupBuying");
   },
   data() {
-    return {};
+    return {
+    };
   },
   methods: {
     shows(key) {
-      // this.show[key] = true;
-      // this.$forceUpdate();
-      this.GroupBuying[key].GroupType.length = 2;
+      this.show[key] = true;
       this.$forceUpdate();
+      // this.GroupBuying[key].GroupType.length = 2;
+      // this.$forceUpdate();
     }
   },
   computed: {
@@ -100,17 +102,17 @@ export default {
       },
       set: function() {}
     }
+  },
+  TwoGroupType: function() {
+    for (var i = 0; i < this.GroupBuying.length; i++) {
+      for (var j = 0; j < this.GroupBuying[i].GroupType.length; j++) {
+        var temp = this.GroupBuying[i].GroupType[j];
+        var temp1 = temp.filter(function(item, index, array) {
+          return item < 2;
+        });
+      }
+    }
   }
-  // TwoGroupType: function() {
-  //   for (var i = 0; i < this.GroupBuying.length; i++) {
-  //     for (var j = 0; j < this.GroupBuying[i].GroupType.length; j++) {
-  //       var temp = this.GroupBuying[i].GroupType[j];
-  //       // var temp1 = temp.filter(function(item, index, array) {
-  //       //   return item < 2;
-  //       // });
-  //     }
-  //   }
-  // }
 };
 </script>
 <style lang="less" scoped>

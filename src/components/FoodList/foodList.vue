@@ -15,8 +15,17 @@
           </span>
         </div>
         <div class="rows2">
-          <span :class="index.NameStar" class="DiscountImg"></span>
+          <span v-if="index.NameTakeOutFood!=null">
+            <span
+              v-for="(item,it) in 5"
+              :key="it"
+              class="TakeOutFood"
+              :class="index.NameTakeOutFood"
+            ></span>
+          </span>
+          <span v-if="index.NameStar!=null" :class="index.NameStar" class="DiscountImg"></span>
           <span class="defen" v-if="index.NameDeFen!=null">{{index.NameDeFen}}分&nbsp;&nbsp;&nbsp;</span>
+          <span class="defen1" v-if="index.NameDeFen1!=null">{{index.NameDeFen1}}&nbsp;&nbsp;&nbsp;</span>
           <span class="tiao" v-if="index.EvaluationNumber!=null">{{index.EvaluationNumber}}条</span>&nbsp;&nbsp;&nbsp;&nbsp;
           <span
             class="ren"
@@ -24,6 +33,7 @@
           >￥{{index.NameAverage}}/人</span>
           <span class="ren" v-if="index.NameModel!=null">|&nbsp;&nbsp;{{index.NameModel}}</span>
           <span class="xf" v-if="index.NameXF!=null">{{index.NameXF}}人消费</span>
+          <span class="minute" v-if="index.NameMinute!=null">{{index.NameMinute}}人消费</span>
         </div>
         <div class="rows3">
           <span class="address" v-if="index.NameArea!=null">{{index.NameArea}}</span>
@@ -79,7 +89,7 @@ export default {
       Name: []
     };
   },
-    watch: {
+  watch: {
     $route(to, from) {
       if (to.path == "/home") {
       } else {
@@ -87,7 +97,7 @@ export default {
         this.Name = this.$store.state.name[this.NameIndex];
       }
     }
-  },
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -113,7 +123,7 @@ export default {
     }
     .flex8 {
       flex: 8;
-      margin-top: 10px;
+      margin-top: 16px;
       margin-left: 14px;
       .restaurantName {
         font-size: 16px;
@@ -127,6 +137,10 @@ export default {
           font-size: 12px;
           font-weight: 800;
         }
+        .defen1 {
+          color: #333;
+          font-size: 11px;
+        }
         .tiao {
           font-size: 12px;
           color: #333;
@@ -135,7 +149,7 @@ export default {
           font-size: 12px;
           color: #333;
         }
-        .xf{
+        .minute {
           color: #999;
           font-size: 10px;
           position: absolute;

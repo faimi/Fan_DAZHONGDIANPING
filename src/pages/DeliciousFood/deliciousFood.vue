@@ -12,13 +12,13 @@
         </van-tabs>
       </div>
       <div slot="title" v-else>
-        <span v-if="$route.path=='/deliciousFood/酒店/1'">{{tit[0]}}</span>
-        <span v-if="$route.path=='/deliciousFood/休闲娱乐/2'">{{tit[1]}}</span>
-        <span v-if="$route.path=='/deliciousFood/外卖/3'">{{tit[2]}}</span>
-        <span v-if="$route.path=='/deliciousFood/火锅/4'">{{tit[3]}}</span>
-        <span v-if="$route.path=='/deliciousFood/丽人/5'">{{tit[4]}}</span>
-        <span v-if="$route.path=='/deliciousFood/周边游/6'">{{tit[5]}}</span>
-        <span v-if="$route.path=='/deliciousFood/KTV/7'">{{tit[6]}}</span>
+        <span v-if="$route.path=='/deliciousFood/酒店/1'">酒店</span>
+        <span v-if="$route.path=='/deliciousFood/休闲娱乐/2'">休闲娱乐</span>
+        <span v-if="$route.path=='/deliciousFood/外卖/3'">外卖</span>
+        <span v-if="$route.path=='/deliciousFood/火锅/4'">火锅</span>
+        <span v-if="$route.path=='/deliciousFood/丽人/5'">丽人</span>
+        <span v-if="$route.path=='/deliciousFood/周边游/6'">周边游</span>
+        <span v-if="$route.path=='/deliciousFood/KTV/7'">KTV</span>
       </div>
     </v-buttonToolbar>
     <v-groupBuying v-if="shows==true"></v-groupBuying>
@@ -38,7 +38,6 @@ export default {
   data() {
     return {
       shows: false,
-      tit: ["酒店", "休闲娱乐", "外卖", "火锅", "丽人", "周边游", "KTV"]
     };
   },
   methods: {

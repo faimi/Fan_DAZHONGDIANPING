@@ -7,7 +7,7 @@ import guessLikeDetails from '../pages/GuessLikeDetails/guessLikeDetails.vue'
 Vue.use(Router)
 
 export default new Router({
-  // mode: 'hash',
+  // mode: 'history',
   routes: [{
       path: '/city',
       component: NavBar,

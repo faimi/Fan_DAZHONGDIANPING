@@ -119,7 +119,7 @@
     </div>
     <div class="resBorder"></div>
     <div class="tg">看了此团购的人也看了</div>
-    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/1`)">
+    <div class="resFlexs">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/0e774376a885086e76a788eedcbc5ea8141548.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"
@@ -130,7 +130,7 @@
         <span class="resOldPrices">￥120</span>
       </div>
     </div>
-    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/2`)">
+    <div class="resFlexs">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/__22857129__4366422.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"
@@ -141,7 +141,7 @@
         <span class="resOldPrices">￥48</span>
       </div>
     </div>
-    <div class="resFlexs" @click="$router.push(`/guessLikeDetails/3`)">
+    <div class="resFlexs">
       <img
         class="resImgs"
         src="https://p0.meituan.net/deal/3120192c8ee3750b02767af0b639693025645.jpg%40450w_280h_1e_1c_1l%7Cwatermark%3D1%26%26r%3D1%26p%3D9%26x%3D2%26y%3D2%26relative%3D1%26o%3D20"

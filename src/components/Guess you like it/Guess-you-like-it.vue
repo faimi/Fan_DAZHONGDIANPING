@@ -37,7 +37,7 @@
     <div class="resBorder"></div>
     <div class="wz">
       猜你喜欢
-      <img src="./image/competitive_icon.png" style="margin: -2px 0 0 8px;" />
+      <img src="./image/competitive_icon.png" style="position: absolute;margin: -5px 6px;" />
     </div>
     <ul>
       <li>

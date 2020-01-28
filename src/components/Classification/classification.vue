@@ -1,20 +1,13 @@
 <template>
   <div id="app">
-    <div class="cf-flex dropdown">
-      <div
-        class="cf-flex1"
-        type="button"
-        id="dropdownMenu1"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="true"
-      >
+    <div class="cf-flex dropdown" @click="shows()">
+      <div class="cf-flex1" type="button" id="dropdownMenu1">
         全部商区
         <span class="iconfont icon-jiangxu down"></span>
         <span class="iconfont icon-shengxu up"></span>
       </div>
       <!-- 会报错，所以:key=后面一定要加'all'或者'part'，单单把(index,key)里面的key修改了不行 -->
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
         <li class="lef-li" data-stop-propagation="true">
           <a
             href="#"
@@ -35,7 +28,7 @@
             <div class="zx" v-if="key != 0">APP专享</div>
           </a>
         </li>
-      </ul>
+      </ul>-->
       <div class="cf-flex1">
         美食
         <span class="iconfont icon-jiangxu down"></span>
@@ -47,6 +40,33 @@
         <span class="iconfont icon-shengxu up"></span>
       </div>
     </div>
+    <ul class="dropdown-menu" v-if="show">
+      <li class="lef-li">
+        <div
+          href="#"
+          class="dropdown-menu-li"
+          v-for="(index, key) in ClassifyArea"
+          :key="'all' + key"
+          @click="choose(key)"
+        >{{ index.AllArea }}</div>
+      </li>
+      <li class="right-li">
+        <div
+          href="#"
+          v-for="(index, key) in ClassifyArea[type].classifyArea"
+          :key="'part' + key"
+          :class="key == 0 ? 'dropdown-menu-li f63' : 'dropdown-menu-li'"
+        >
+          {{ index }}
+          <div class="zx" v-if="key != 0">APP专享</div>
+        </div>
+      </li>
+    </ul>
+    //新建一个组件写筛选
+    <!-- <van-dropdown-menu>
+      <van-dropdown-item v-model="value1" :options="option1" />
+      <van-dropdown-item v-model="value2" :options="option2" />
+    </van-dropdown-menu> -->
   </div>
 </template>
 <script>
@@ -97,18 +117,33 @@ export default {
     return {
       type: 0,
       arr: [],
-      show: false
+      show: false,
+      value1: 0,
+      value2: "a",
+      option1: [
+        { text: "全部商品", value: 0 },
+        { text: "新款商品", value: 1 },
+        { text: "活动商品", value: 2 }
+      ],
+      option2: [
+        { text: "默认排序", value: "a" },
+        { text: "好评排序", value: "b" },
+        { text: "销量排序", value: "c" }
+      ]
     };
   },
   methods: {
     choose(key) {
       this.type = key;
+    },
+    shows() {
+      this.show = !this.show;
     }
   }
 };
-$("body").on("click", "[data-stopPropagation]", function(e) {
-  e.stopPropagation();
-});
+// $("body").on("click", "[data-stopPropagation]", function(e) {
+//   e.stopPropagation();
+// });
 </script>
 <style lang="less" scoped>
 #app {
@@ -154,67 +189,72 @@ $("body").on("click", "[data-stopPropagation]", function(e) {
         margin-left: -17px;
       }
     }
-    .dropdown-menu {
-      width: 100%;
-      box-shadow: none;
-      font-family: PingFangSC-Medium;
-      margin-top: 0;
-      border-radius: 0;
-      border: none;
-      padding-bottom: 0;
-      height: 350px;
-      .lef-li {
-        width: 63%;
-        .dropdown-menu-li {
-          color: #111;
-          font-size: 14px;
-          height: 40px;
-          line-height: 34px;
-          border-left: 2px solid #fff;
-        }
-        .dropdown-menu-li:hover {
-          background-color: #f9f9f9;
-        }
-        // 注意是focus，不是active
-        .dropdown-menu-li:focus {
-          color: #f63;
-          background-color: #f0f0f0;
-          border-left: 2px solid #f63;
-          font-size: 14px;
-          height: 40px;
-          line-height: 34px;
-        }
+  }
+  .dropdown-menu {
+    width: 100%;
+    box-shadow: none;
+    font-family: PingFangSC-Medium;
+    margin-top: 0;
+    border-radius: 0;
+    border: none;
+    padding-bottom: 0;
+    height: 350px;
+    .lef-li {
+      // height: 360px;
+      background-color: #fff;
+      .dropdown-menu-li {
+        color: #111;
+        font-size: 14px;
+        height: 40px;
+        line-height: 34px;
+        border-left: 2px solid #fff;
+        padding-left: 10px;
       }
-      .right-li {
-        float: right;
-        width: 37%;
-        margin-top: -320px;
-        overflow: hidden;
-        height: 350px;
-        overflow-y: scroll;
+      .dropdown-menu-li:hover {
+        border-left: 2px solid #f63;
+        background-color: #f9f9f9;
+      }
+      // 注意是focus，不是active
+      .dropdown-menu-li:focus {
+        color: #f63;
         background-color: #f0f0f0;
-        .dropdown-menu-li {
-          color: #111;
-          font-size: 14px;
-          height: 40px;
-          line-height: 34px;
-          .zx {
-            text-align: right;
-            margin-top: -35px;
-            color: #f63;
-          }
-        }
-        .dropdown-menu-li:hover {
-          background-color: #f0f0f0;
-        }
-        //注意渲染顺序，如果f63在dropdown-menu-li的上方，样式会被覆盖
-        .f63 {
+        // border-left: 2px solid #f63;
+        font-size: 14px;
+        height: 40px;
+        line-height: 34px;
+      }
+    }
+    .right-li {
+      float: right;
+      width: 50%;
+      margin-top: -320px;
+      overflow: hidden;
+      height: 320px;
+      overflow-y: scroll;
+      background-color: #f0f0f0;
+      .dropdown-menu-li {
+        color: #111;
+        font-size: 14px;
+        height: 40px;
+        line-height: 34px;
+        padding-left: 10px;
+        .zx {
+          text-align: right;
+          margin-top: -35px;
           color: #f63;
+          margin-right: 10px;
         }
       }
-      .right-li::-webkit-scrollbar {
-        display: none; /* 隐藏滚动条 */
+      .dropdown-menu-li:hover {
+        background-color: #f0f0f0;
       }
+      //注意渲染顺序，如果f63在dropdown-menu-li的上方，样式会被覆盖
+      .f63 {
+        color: #f63;
+      }
+    }
+    .right-li::-webkit-scrollbar {
+      display: none; /* 隐藏滚动条 */
     }
   }
 }

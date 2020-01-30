@@ -11,10 +11,12 @@ export default new Router({
   routes: [{
       path: '/city',
       component: NavBar,
+      name:'city'
     },
     {
       path: '/home',
       component: home,
+      name:'home'
     },
     {
       path: '/deliciousFood/:type/:index',
@@ -23,6 +25,7 @@ export default new Router({
     {
       path: '/guessLikeDetails/:index',
       component: guessLikeDetails,
+      name:'guessLikeDetails'
     //   beforeEnter: (to, from, next) => {
     //     console.log("to", to);
     //     console.log("from", from);

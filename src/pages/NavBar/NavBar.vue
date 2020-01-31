@@ -34,6 +34,7 @@
     <!-- <button @click="hidenCity"></button> -->
   </div>
 </template>
+// 数据驱动、双向绑定、路由的源码 面试准备充足：
 <script>
 import { mapGetters } from "vuex";
 import buttonToolbar from "../../components/ButtonToolbar/buttonToolbar.vue";

@@ -48,7 +48,7 @@
           v-for="(index, key) in ClassifyArea"
           :key="'all' + key"
           @click="choose(key)"
-        >{{ index.AllArea }}</div>
+        >{{ index.AllArea.text }}</div>
       </li>
       <li class="right-li">
         <div
@@ -62,10 +62,6 @@
         </div>
       </li>
     </ul>//新建一个组件写筛选
-    <!-- <van-dropdown-menu>
-      <van-dropdown-item v-model="value1" :options="option1" />
-      <van-dropdown-item v-model="value2" :options="option2" />
-    </van-dropdown-menu>-->
   </div>
 </template>
 <script>
@@ -138,6 +134,7 @@ export default {
   margin: 0 auto;
   height: 41px;
   line-height: 41px;
+  z-index: 999999;
   .cf-flex {
     background-color: #fff;
     display: flex;

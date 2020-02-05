@@ -1,13 +1,30 @@
 <template>
   <div>
+    {{test}}
     <van-dropdown-menu>
-      <van-dropdown-item v-model="value1" :options="option1" />
-      <van-dropdown-item v-model="value2" :options="option2" />
+      <!-- <slot slot="default" name="default"></slot> -->
+      <van-dropdown-item title="全部商区" v-model="value1" :options="test" />
+      <van-dropdown-item title="美食" v-model="value2" :options="option2" />
+      <van-dropdown-item title="智能排序" v-model="value2" :options="option2" />
     </van-dropdown-menu>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
+  created() {
+    this.$store.dispatch("getClassifyArea");
+  },
+  computed: {
+    ...mapGetters(["ClassifyArea"]),
+    test:function(){
+      var temp=[];
+      for(var i=0;i<this.ClassifyArea.length;i++){
+        temp.push(this.ClassifyArea[i].AllArea)
+      };
+      return temp;
+    }
+  },
   data() {
     return {
       value1: 0,

@@ -31,9 +31,11 @@ Vue CLI+Vue Router+Vuex+Less+Vant+axios+Swiper
 - npm i vant -S
 
 ## 引入Vant的button组件
+```javascript
 import { Button } from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Button);
+```
 
 ## swiper的应用
 

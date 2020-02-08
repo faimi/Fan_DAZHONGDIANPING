@@ -23,14 +23,32 @@ Vue CLI+Vue Router+Vuex+Less+Vant+axios+Swiper
 <div align=center> <img src="https://img-blog.csdnimg.cn/20200205184709447.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0OTk3MTQ3,size_16,color_FFFFFF,t_70" width = "300" height = "1400"  /> </div>
 
 # npm
-npm install less less-loader -D
-npm install vuex axios -S
-npm install jquery -S
-npm install mockjs
-npm install swiper
-npm i vant -S
+- npm install less less-loader -D
+- npm install vuex axios -S
+- npm install jquery -S
+- npm install mockjs
+- npm install swiper
+- npm i vant -S
 
 ## 引入Vant的button组件
 import { Button } from 'vant';
 import 'vant/lib/index.css';
 Vue.use(Button);
+
+## swiper的应用
+
+```javascript
+import { mapState } from "vuex";
+import Swiper from "swiper";
+import "swiper/css/swiper.css";
+export default {
+  mounted: function() {
+    new Swiper(".swiper-container", {
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
+  }
+};
+```

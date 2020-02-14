@@ -61,7 +61,7 @@
           <div class="zx" v-if="key != 0">APP专享</div>
         </div>
       </li>
-    </ul>//新建一个组件写筛选
+    </ul>
   </div>
 </template>
 <script>
@@ -103,9 +103,6 @@ export default {
     // })
   },
   computed: {
-    // ...mapState('classificationArea',{
-    //   ClassifyArea:state=>state.ClassifyArea
-    // }),
     ...mapGetters(["ClassifyArea"])
   },
   data() {

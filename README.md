@@ -22,6 +22,9 @@ Vue CLI+Vue Router+Vuex+Less+Vant+axios+Swiper
 ## 猜你喜欢详情（以一口香烧饼为例）
 <div align=center> <img src="https://img-blog.csdnimg.cn/20200205184709447.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0OTk3MTQ3,size_16,color_FFFFFF,t_70" width = "300" height = "1400"  /> </div>
 
+# 新建webpack
+- vue init webpack Fan_DAZHONGDIANPING
+
 # npm
 - npm install less less-loader -D
 - npm install vuex -S

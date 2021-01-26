@@ -24,7 +24,7 @@
     <!-- <v-dropdownMenu></v-dropdownMenu> -->
     <!-- <v-classification></v-classification> -->
     <v-groupBuying v-if="shows==true"></v-groupBuying>
-    <!-- <v-foodList v-if="shows==false"></v-foodList> -->
+    <v-foodList v-if="shows==false"></v-foodList>
   </div>
 </template>
 <script>

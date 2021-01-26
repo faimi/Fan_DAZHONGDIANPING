@@ -1,18 +1,18 @@
 <template>
   <div>
     <!-- 栅栏系统的row不能丢 -->
-    <van-row class="bc row">
-      <van-col span="8">
+    <van-row class="bc">
+      <van-col span="10">
         <img src="./image/flash_sale.png" />
       </van-col>
-      <van-col span="12" class="textLeft xbk">
+      <van-col span="11" class="textLeft xbk">
         <div class="zgc">
-          星巴克中关村（软件园店）
+          星巴克中关村
           <span class="pri">￥35</span>
         </div>
         <div class="ti">每天十点开抢</div>
       </van-col>
-      <van-col span="4" class="img2">
+      <van-col span="3" class="img2">
         <img src="./image/arrow.png" />
       </van-col>
     </van-row>
@@ -25,10 +25,8 @@
         v-for="(index,key) in mod"
         :key="key"
       >
-        <div class="floatl">
-          <div :class="color[key]">{{index.title}}</div>
-          <div class="us">{{index.user}}</div>
-        </div>
+        <div :class="color[key]">{{index.title}}</div>
+        <div class="us">{{index.user}}</div>
         <div>
           <img :src="index.pic" alt />
         </div>
@@ -156,22 +154,23 @@ export default {
 .bc {
   background: white;
   margin: 20px 0;
+  text-align: center;
 }
 .xbk {
-  margin: 36px 0;
+  margin: 42px 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 .zgc {
   color: #070707;
-  font-size: 25px;
+  font-size: 16px;
   font-family: fantasy;
   margin-bottom: 16px;
 }
 .ti {
   color: #6a6a6a;
-  font-size: 22px;
+  font-size: 16px;
 }
 .img2 {
   line-height: 159px;
@@ -192,10 +191,6 @@ export default {
   font-size: 23px;
   margin-top: 20px;
   color: #6a6a6a;
-}
-.floatl {
-  float: left;
-  margin-left: 101px;
 }
 .color1 {
   color: #965037;

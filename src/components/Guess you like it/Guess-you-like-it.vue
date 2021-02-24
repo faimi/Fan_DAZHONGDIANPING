@@ -105,7 +105,7 @@ export default {
 .wz {
   color: #acacac;
   font-size: 20px;
-  margin: 10px 21px;
+  margin: 10px 18px;
 }
 .bg {
   background: white;

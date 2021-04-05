@@ -5,26 +5,26 @@
         <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"></i>
         <div class="van-nav-bar__text">返回</div>
       </div>
-      <div slot="title" v-if="$route.path=='/deliciousFood/美食/0'">
+      <div slot="title" v-if="$route.path == '/deliciousFood/美食/0'">
         <van-tabs type="card" @click="show()">
           <van-tab title="商户" class="sh"></van-tab>
           <van-tab title="闪惠团购" class="shtg"></van-tab>
         </van-tabs>
       </div>
       <div slot="title" v-else>
-        <span v-if="$route.path=='/deliciousFood/酒店/1'">酒店</span>
-        <span v-if="$route.path=='/deliciousFood/休闲娱乐/2'">休闲娱乐</span>
-        <span v-if="$route.path=='/deliciousFood/外卖/3'">外卖</span>
-        <span v-if="$route.path=='/deliciousFood/火锅/4'">火锅</span>
-        <span v-if="$route.path=='/deliciousFood/丽人/5'">丽人</span>
-        <span v-if="$route.path=='/deliciousFood/周边游/6'">周边游</span>
-        <span v-if="$route.path=='/deliciousFood/KTV/7'">KTV</span>
+        <span v-if="$route.path == '/deliciousFood/酒店/1'">酒店</span>
+        <span v-if="$route.path == '/deliciousFood/休闲娱乐/2'">休闲娱乐</span>
+        <span v-if="$route.path == '/deliciousFood/外卖/3'">外卖</span>
+        <span v-if="$route.path == '/deliciousFood/火锅/4'">火锅</span>
+        <span v-if="$route.path == '/deliciousFood/丽人/5'">丽人</span>
+        <span v-if="$route.path == '/deliciousFood/周边游/6'">周边游</span>
+        <span v-if="$route.path == '/deliciousFood/KTV/7'">KTV</span>
       </div>
     </v-buttonToolbar>
     <!-- <v-dropdownMenu></v-dropdownMenu> -->
     <!-- <v-classification></v-classification> -->
-    <v-groupBuying v-if="shows==true"></v-groupBuying>
-    <v-foodList v-if="shows==false"></v-foodList>
+    <v-groupBuying v-if="shows == true"></v-groupBuying>
+    <v-foodList v-if="shows == false"></v-foodList>
   </div>
 </template>
 <script>
@@ -39,18 +39,23 @@ export default {
     "v-classification": classification,
     "v-buttonToolbar": buttonToolbar,
     "v-groupBuying": groupBuying,
-    "v-dropdownMenu": dropdownMenu
+    "v-dropdownMenu": dropdownMenu,
+  },
+  beforeRouteEnter(to, from, next) {
+    next((vm) => {
+      vm.shows = false;
+    });
   },
   data() {
     return {
-      shows: false
+      shows: false,
     };
   },
   methods: {
     show() {
       this.shows = !this.shows;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

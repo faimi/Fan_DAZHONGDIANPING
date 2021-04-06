@@ -7,29 +7,7 @@
         <span class="iconfont icon-shengxu up"></span>
       </div>
       <!-- 会报错，所以:key=后面一定要加'all'或者'part'，单单把(index,key)里面的key修改了不行 -->
-      <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        <li class="lef-li" data-stop-propagation="true">
-          <a
-            href="#"
-            class="dropdown-menu-li"
-            v-for="(index, key) in ClassifyArea"
-            :key="'all' + key"
-            @click="choose(key)"
-          >{{ index.AllArea }}</a>
-        </li>
-        <li class="right-li" v-if="ClassifyArea[0] != null">
-          <a
-            href="#"
-            v-for="(index, key) in ClassifyArea[type].classifyArea"
-            :key="'part' + key"
-            :class="key == 0 ? 'dropdown-menu-li f63' : 'dropdown-menu-li'"
-          >
-            {{ index }}
-            <div class="zx" v-if="key != 0">APP专享</div>
-          </a>
-        </li>
-      </ul>-->
-      <div class="cf-flex1">
+      <!-- <div class="cf-flex1">
         美食
         <span class="iconfont icon-jiangxu down"></span>
         <span class="iconfont icon-shengxu up"></span>
@@ -38,17 +16,19 @@
         智能排序
         <span class="iconfont icon-jiangxu down"></span>
         <span class="iconfont icon-shengxu up"></span>
-      </div>
+      </div> -->
     </div>
     <ul class="dropdown-menu" v-if="show">
       <li class="lef-li">
         <div
           href="#"
-          class="dropdown-menu-li"
           v-for="(index, key) in ClassifyArea"
+          :class="index.AllArea.value == 0 ? 'dropdown-menu-li-focus' : 'dropdown-menu-li'"
           :key="'all' + key"
           @click="choose(key)"
-        >{{ index.AllArea.text }}</div>
+        >
+          {{ index.AllArea.text }}
+        </div>
       </li>
       <li class="right-li">
         <div
@@ -58,7 +38,6 @@
           :class="key == 0 ? 'dropdown-menu-li f63' : 'dropdown-menu-li'"
         >
           {{ index }}
-          <div class="zx" v-if="key != 0">APP专享</div>
         </div>
       </li>
     </ul>
@@ -67,9 +46,8 @@
 <script>
 import { mapGetters } from "vuex";
 // 1、不是生命周期渲染的问题，是异步的问题，用nextTick，而且这个可以放在任何一个生命周期里面，不一定要是updated
-// 2、ClassifyArea外面还包着一层classificationArea这是为什么？
 // 3、modules用的不三不四
-// 4、state和getters一样，那就没有必要写getters，不要写多余重复的代码，要明白自己写的是什么
+// 4、state和getters一样，那就没有必要写getters，不要写多余重复的代码
 // 5、学会用devtools
 // 6、map，Object(key),namespace,箭头函数
 // 7、所以现在的问题是models的问题，数据为空
@@ -80,36 +58,16 @@ export default {
     //   this.$store.dispatch("getClassifyArea");
     // })
   },
-  mounted: function() {
-    // 不能用==
-    // this.$nextTick(function () {
-    // this.$store.dispatch("getClassifyArea");
-    // })
-    //   this.$nextTick(function () {
-    //   this.$store.dispatch("classificationArea/getClassifyArea");
-    //   // console.log(this.ClassifyArea)
-    // })
-    // this.arr=this.classificationArea;
-    // console.log(this.arr.ClassifyArea);
-    // var arr=[];
-    // arr=this.classificationArea;
-    // // console.log(this.classificationArea.ClassifyArea);
-    // console.log(arr);
-    // console.log(arr['ClassifyArea']);
-    // console.log(this.arr['ClassifyArea']);
-    // console.log(Object.keys(this.classificationArea))
-    // this.classificationArea.map(function(item){
-    // console.log(item);
-    // })
+  mounted() {
+    console.log(this.ClassifyArea);
   },
   computed: {
-    ...mapGetters(["ClassifyArea"])
+    ...mapGetters(["ClassifyArea"]),
   },
   data() {
     return {
       type: 0,
-      arr: [],
-      show: false
+      show: false,
     };
   },
   methods: {
@@ -118,8 +76,8 @@ export default {
     },
     shows() {
       this.show = !this.show;
-    }
-  }
+    },
+  },
 };
 // $("body").on("click", "[data-stopPropagation]", function(e) {
 //   e.stopPropagation();
@@ -181,7 +139,6 @@ export default {
     padding-bottom: 0;
     height: 350px;
     .lef-li {
-      // height: 360px;
       background-color: #fff;
       .dropdown-menu-li {
         color: #111;
@@ -191,15 +148,18 @@ export default {
         border-left: 2px solid #fff;
         padding-left: 10px;
       }
+      .dropdown-menu-li-focus {
+        border-left: 2px solid rgb(91, 46, 173);
+        background-color: #f9f9f9;
+      }
       .dropdown-menu-li:hover {
-        border-left: 2px solid #f63;
+        border-left: 2px solid rgb(91, 46, 173);
         background-color: #f9f9f9;
       }
       // 注意是focus，不是active
       .dropdown-menu-li:focus {
-        color: #f63;
+        color: rgb(158, 235, 16);
         background-color: #f0f0f0;
-        // border-left: 2px solid #f63;
         font-size: 14px;
         height: 40px;
         line-height: 34px;
@@ -212,19 +172,13 @@ export default {
       overflow: hidden;
       height: 320px;
       overflow-y: scroll;
-      background-color: #f0f0f0;
+      background-color: #f9f9f9;
       .dropdown-menu-li {
         color: #111;
         font-size: 14px;
         height: 40px;
         line-height: 34px;
         padding-left: 10px;
-        .zx {
-          text-align: right;
-          margin-top: -35px;
-          color: #f63;
-          margin-right: 10px;
-        }
       }
       .dropdown-menu-li:hover {
         background-color: #f0f0f0;

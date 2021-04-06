@@ -21,10 +21,10 @@
         <span v-if="$route.path == '/deliciousFood/KTV/7'">KTV</span>
       </div>
     </v-buttonToolbar>
-    <!-- <v-dropdownMenu></v-dropdownMenu> -->
     <!-- <v-classification></v-classification> -->
-    <v-groupBuying v-if="shows == true"></v-groupBuying>
-    <v-foodList v-if="shows == false"></v-foodList>
+    <v-screen></v-screen>
+    <!-- <v-groupBuying v-if="shows == true"></v-groupBuying> -->
+    <!-- <v-foodList v-if="shows == false"></v-foodList> -->
   </div>
 </template>
 <script>
@@ -32,14 +32,14 @@ import foodList from "../../components/FoodList/foodList.vue";
 import classification from "../../components/Classification/classification.vue";
 import buttonToolbar from "../../components/ButtonToolbar/buttonToolbar.vue";
 import groupBuying from "../../components/GroupBuying/groupBuying.vue";
-import dropdownMenu from "../../components/DropdownMenu/dropdownMenu.vue";
+import screen from "../../components/Screen/screen.vue";
 export default {
   components: {
     "v-foodList": foodList,
     "v-classification": classification,
     "v-buttonToolbar": buttonToolbar,
     "v-groupBuying": groupBuying,
-    "v-dropdownMenu": dropdownMenu,
+    "v-screen":screen,
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {

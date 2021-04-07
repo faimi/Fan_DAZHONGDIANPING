@@ -22,9 +22,11 @@
       </div>
     </v-buttonToolbar>
     <!-- <v-classification></v-classification> -->
-    <v-screen></v-screen>
-    <!-- <v-groupBuying v-if="shows == true"></v-groupBuying> -->
-    <!-- <v-foodList v-if="shows == false"></v-foodList> -->
+    <v-screen
+      v-if="shows == false && $route.path == '/deliciousFood/美食/0'"
+    ></v-screen>
+    <v-groupBuying v-if="shows == true"></v-groupBuying>
+    <v-foodList v-if="shows == false"></v-foodList>
   </div>
 </template>
 <script>
@@ -39,7 +41,7 @@ export default {
     "v-classification": classification,
     "v-buttonToolbar": buttonToolbar,
     "v-groupBuying": groupBuying,
-    "v-screen":screen,
+    "v-screen": screen,
   },
   beforeRouteEnter(to, from, next) {
     next((vm) => {

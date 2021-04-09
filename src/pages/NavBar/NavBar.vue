@@ -1,5 +1,4 @@
 <template>
-  <!-- <div id="app" v-show="cityShow" class="city"> -->
   <div class="city">
     <v-ButtonToolbar>
       <div slot="left" @click="$router.push('/home')">
@@ -14,24 +13,31 @@
       </div>
     </v-ButtonToolbar>
     <div class="sousuo">
-      <input class="iconfont inp" type="text" placeholder="输入城市名或拼音查询" />
+      <input
+        class="iconfont inp"
+        type="text"
+        placeholder="输入城市名或拼音查询"
+      />
     </div>
     <div class="wf">无法获取您的定位</div>
     <div class="cs">&nbsp;&nbsp;&nbsp;热门城市</div>
     <div class="flex">
-      <div class="flex3 com" v-for="(index1,k1) in remen" :key="k1">&nbsp;&nbsp;&nbsp;{{index1}}</div>
+      <div class="flex3 com" v-for="(index1, k1) in remen" :key="k1">
+        &nbsp;&nbsp;&nbsp;{{ index1 }}
+      </div>
     </div>
     <div class="cs">&nbsp;&nbsp;&nbsp;更多城市</div>
     <div class="flex">
-      <div class="flex3 com" v-for="(zi,k6) in zimu" :key="k6">{{zi}}</div>
+      <div class="flex3 com" v-for="(zi, k6) in zimu" :key="k6">{{ zi }}</div>
     </div>
-    <div v-for="(item,k3) in city" :key="k3+'-city'">
-      <div class="cs">&nbsp;&nbsp;&nbsp;{{item.title}}</div>
+    <div v-for="(item, k3) in city" :key="k3 + '-city'">
+      <div class="cs">&nbsp;&nbsp;&nbsp;{{ item.title }}</div>
       <div class="flex">
-        <div class="flex3 com" v-for="(list,k5) in item.lists" :key="k5">{{list}}</div>
+        <div class="flex3 com" v-for="(list, k5) in item.lists" :key="k5">
+          {{ list }}
+        </div>
       </div>
     </div>
-    <!-- <button @click="hidenCity"></button> -->
   </div>
 </template>
 <script>
@@ -55,7 +61,7 @@ export default {
         "苏州",
         "天津",
         "武汉",
-        "西安"
+        "西安",
       ],
       zimu: [
         "A",
@@ -80,16 +86,19 @@ export default {
         "W",
         "X",
         "Y",
-        "Z"
-      ]
+        "Z",
+      ],
     };
   },
   computed: {
-    ...mapGetters(["city"])
+    ...mapGetters(["city"]),
   },
   components: {
-    "v-ButtonToolbar": buttonToolbar
-  }
+    "v-ButtonToolbar": buttonToolbar,
+  },
+  mounted() {
+    console.log(this);
+  },
 };
 </script>
 <style scoped>
